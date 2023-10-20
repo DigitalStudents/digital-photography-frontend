@@ -1,5 +1,6 @@
+import {Link} from "react-router-dom";
 
-export default function ProductBox({nombre, imagen, tipo, descripcion, precio_por_dia}){
+export default function ProductBox({nombre,id,imagen, tipo, descripcion, precio_por_dia}){
 
     
     const styles = {
@@ -36,11 +37,13 @@ export default function ProductBox({nombre, imagen, tipo, descripcion, precio_po
     };
 
     return (
-        <div style={styles.container}>
+        <Link to={`product/${id}`}>
+            <div style={styles.container}>
             <img src={imagen} style={styles.image} alt={nombre} />
             <h1 style={styles.title}>Título: {nombre}</h1>
             <h2 style={styles.subtitle}>Tipo: {tipo}</h2>
             <h2 style={styles.subtitle}>Descripción: {descripcion}</h2>
             <h3 style={styles.price}>Precio: ${precio_por_dia}</h3>
-        </div>);
+            </div>
+        </Link>);
 }

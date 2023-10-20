@@ -149,9 +149,10 @@ function App() {
 
   return (<>
       {productos.map((p)=>(<ProductBox 
+      id={p.id}
       imagen={p.imagen} 
       nombre={p.nombre}
-       tipo={p.tipo} 
+      tipo={p.tipo} 
        descripcion={p.descripcion} 
        precio={p.precio_por_dia}/>))}
       </>);
