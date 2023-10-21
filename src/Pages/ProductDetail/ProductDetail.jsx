@@ -111,7 +111,7 @@ export default function ProductDetail(){
   
   
     ]
-    const producto = productos[productId];
+    const producto = productos[productId-1];
 
     const styles = {
         container: {

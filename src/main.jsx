@@ -8,16 +8,18 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
-import ProductDetail from './Components/ProductDetail/ProductDetail.jsx';
+import Header from './components/Header/Header.jsx';
+import ProductDetail from './Pages/ProductDetail/ProductDetail.jsx';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>
+    element: <><Header /><App/></>
   },
   {
     path: "/product/:productId",
-    element: <ProductDetail/>
+    element: <><Header /><ProductDetail/></>
   },
 
 
