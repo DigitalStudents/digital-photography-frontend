@@ -1,0 +1,13 @@
+.search-section{
+    background: rgb(22,101,116);
+    background: linear-gradient(0deg, rgba(22,101,116,1) 47%, rgba(8,197,210,1) 86%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    height: 100px;
+    position: absolute;
+    top: 68px;
+}
