@@ -1,0 +1,11 @@
+.product-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    grid-template-rows: repeat(5, 1fr);    /* 5 filas */
+    gap: 50px; /* Espacio entre las tarjetas */
+    width: 100%;
+    max-width: 600px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: 0 auto;   /* Centra el contenedor si lo deseas */
+    margin-top: 200px;
+}
+
