@@ -1,6 +1,6 @@
 .search-section{
-    background: rgb(22,101,116);
-    background: linear-gradient(0deg, rgba(22,101,116,1) 47%, rgba(8,197,210,1) 86%);
+    background-color: #08c5d2;
+  
     display: flex;
     align-items: center;
     justify-content: center;
