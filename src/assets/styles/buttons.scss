@@ -1,0 +1,10 @@
+
+.btn-primary {
+    background-color: $eastern-blue-600;
+    border-color:  $eastern-blue-600;
+}
+.btn:hover, .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:focus {
+    background-color: $eastern-blue-700;
+    border-color:  $eastern-blue-700;
+    box-shadow: 0 0 0 0.2rem rgb(169, 248, 246);
+}
