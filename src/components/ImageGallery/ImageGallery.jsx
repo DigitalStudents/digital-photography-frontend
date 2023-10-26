@@ -12,7 +12,7 @@ const ImageGallery = ({ productImages }) => {
             <Row>
                 {productImages.map((img, index) => (
                     <Col xs={3} key={index} className="mb-2">
-                        <Image src={img} alt={`Product ${index}`} thumbnail onClick={() => setMainImage(img)} />
+                        <Image className="gallery-product-image" src={img} alt={`Product ${index}`} thumbnail onClick={() => setMainImage(img)} />
                     </Col>
                 ))}
             </Row>

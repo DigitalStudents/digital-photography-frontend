@@ -1,5 +1,14 @@
 .main-product-image {
-    width: 300px;  /* Establece el ancho que desees */
-    height: 300px; /* Establece el alto que desees */
+    width: 100%;  /* Establece el ancho que desees */
+    object-fit: cover; /* Para mantener la proporción de la imagen */
+}
+img.main-product-image  {
+    width: 100%;  /* Establece el ancho que desees */
+    object-fit: cover; 
+    min-height: 400px;
+}
+.gallery-product-image{
+    width: 100px;  /* Establece el ancho que desees */
+    height: 100px; /* Establece el alto que desees */
     object-fit: cover; /* Para mantener la proporción de la imagen */
 }
