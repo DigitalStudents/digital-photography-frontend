@@ -1,0 +1,26 @@
+/* ProductDetail.css */
+
+.product-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.product-detail-card {
+    max-width: 600px;
+    width: 100%;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.product-detail-card img {
+    max-height: 400px;
+    width: auto;
+}

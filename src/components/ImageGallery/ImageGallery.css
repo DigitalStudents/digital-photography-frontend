@@ -1,0 +1,5 @@
+.main-product-image {
+    width: 300px;  /* Establece el ancho que desees */
+    height: 300px; /* Establece el alto que desees */
+    object-fit: cover; /* Para mantener la proporción de la imagen */
+}
