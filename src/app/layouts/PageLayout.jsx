@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 
 const PageLayout = () => {
   return (
-    <section className='main-layout'>
+    <section>
         <Header/>
         <div className='test' style={{marginTop: '68px', height: '85vh', }}>
           <Outlet />
