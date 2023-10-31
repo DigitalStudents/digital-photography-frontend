@@ -10,6 +10,8 @@ const Sidebar = () => {
   const navigate = useNavigate();
   return (
     <nav className="sidebar-container">
+      <h4 className="sidebar-title">Hola, Admin</h4>
+      <hr/>
       <ul className="sidebar-box">
         {options.map((option, id) => (
           <li key={id}>

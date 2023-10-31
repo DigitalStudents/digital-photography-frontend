@@ -8,3 +8,7 @@
     border-color:  $eastern-blue-700;
     box-shadow: 0 0 0 0.2rem rgb(169, 248, 246);
 }
+.btn-primary:disabled {
+    background-color: #6c757d;
+    border-color:  #6c757d;
+}
