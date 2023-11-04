@@ -8,7 +8,7 @@ function Header() {
   return (
     <Navbar  bg="dark" data-bs-theme="dark" fixed="top" className="custom-navbar">
       <Container>
-        <Navbar className="logo" href="#home"><Link to="/" className="logo">FilmBook</Link></Navbar>
+        <Navbar className="logo" href="#home"><img src="../../public/logo.PNG" width={55} height={30} alt="" /><Link to="/" className="logo">FilmBook</Link></Navbar>
         <Nav className="ms-auto">
           <Nav className="link" href="#home">Iniciar Sesion</Nav>
           <Nav className="link" href="#features">Registrase</Nav>
