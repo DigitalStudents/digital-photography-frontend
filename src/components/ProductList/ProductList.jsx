@@ -1,9 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import ProductBox from "../ProductBox/ProductBox";
+import "./ProductList.css";
 
 const ProductList = () => {
-    return(
-        <div></div>
-    )
-}
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/v1/productos");
+        const data = await response.json();
+        const filteredProducts = data.filter((product) => !product.deleted);
+        setProducts(filteredProducts);
+      } catch (error) {
+        console.error("Error al obtener los productos", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <div className="product-list">
+      {products.map((p) => (
+        <ProductBox
+          key={p.id}
+          nombre={p.nombre}
+          id={p.id}
+          descripcion={p.descripcion}
+          imagen={p.imagenes[0]}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default ProductList;
