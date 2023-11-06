@@ -2,6 +2,7 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import ProductDetail from "../../Pages/ProductDetail/ProductDetail";
 import Home from "../../Pages/Home/Home";
+import CategoryPage from "../../Pages/CategoryPage/CategoryPage";
 import PageLayout from "../layouts/PageLayout";
 import AdminLayout from "../layouts/AdminLayout";
 import RegisterProduct from "../pages/Admin/RegisterProduct";
@@ -19,6 +20,10 @@ export const Router = createBrowserRouter([
       {
         path: "/product/:productId",
         element: <ProductDetail />,
+      },
+      {
+        path: "/categoria/:categoryId",
+        element: <CategoryPage />,
       },
       {
         path: "/admin",
