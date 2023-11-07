@@ -8,84 +8,26 @@ const ViewProduct = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:8080/v1/productos");
-        const data = await response.json();
-        const filteredProducts = data.filter((product) => !product.deleted);
-        setProducts(filteredProducts);
-      } catch (error) {
-        console.error("Error al obtener los productos", error);
-      }
-    };
+        await fetch('http://localhost:8080/v1/productos')
+        .then(response => response.json())
+        .then(data => data)
+    }
 
-    fetchData();
-  }, []);
+    useEffect(() => {
+        fetch('http://localhost:8080/v1/productos')
+            .then(response => response.json())
+            .then(data => setProducts(data))
+    }, [])
 
+    products.forEach(p => console.log(p.imagenes[0]))
 
-  const handleDeleteProduct = (id) => {
-    Swal.fire({
-      title: "¿Estás seguro que quieres eliminar este producto?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Sí, eliminarlo",
-      cancelButtonText: "Cancelar",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`http://localhost:8080/v1/productos/${id}`, {
-          method: "DELETE",
-        })
-          .then(() => {
-            const updatedProducts = products.filter(
-              (product) => product.id !== id
-            );
-            setProducts(updatedProducts);
-
-            Swal.fire("Producto eliminado con éxito!", "", "success");
-          })
-          .catch((error) => {
-            Swal.fire("Error al eliminar el producto", error.message, "error");
-            console.error("Error al eliminar el producto", error);
-          });
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire("Cancelado", "El producto no ha sido eliminado.", "error");
-      }
-    });
-  };
-
-
-  return (
-    <div>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre del Producto</th>
-            <th>Descripcion</th>
-            <th>Precio</th>
-            <th>Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((product) => (
-            <tr key={product.id}>
-              <td>{product.id}</td>
-              <td>{product.nombre}</td>
-              <td>{product.descripcion}</td>
-              <td>{product.precio}</td>
-              <td>
-                <Button
-                  variant="danger"
-                  onClick={() => handleDeleteProduct(product.id)}
-                >
-                  Eliminar
-                </Button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </div>
-  );
-};
+    return(
+        <div className="product-list">
+            {
+                products.map(p => <ProductBox key={p.id} nombre={p.nombre} id={p.id} description={p.description} imagen={p.imagenes[0]} />)
+            }
+        </div>
+    )
+}
 
 export default ViewProduct;

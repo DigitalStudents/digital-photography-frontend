@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-const productsEndpoint = "http://localhost:8080/v1/productos";
+const productsEndpoint = `${import.meta.env.VITE_BACKEND_URL}productos`;
 const initialProductForm = {
   nombre: "",
   categoria: "",
