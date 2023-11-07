@@ -12,7 +12,7 @@ export default function ProductDetail() {
     const producto = {
         "id": 1,
         "nombre": "Canon EOS 5D Mark IV",
-        "tipo": "Cámara",
+        "categoria": "Cámara",
         "descripcion": "DSLR de 30.4 MP, grabación 4K",
         "precio_por_dia": 100,
         "imagen": "https://placehold.co/400x400",
@@ -40,7 +40,7 @@ export default function ProductDetail() {
                 <Col><Card>
                     <Card.Body>
                         <Card.Title>{producto.nombre}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">Tipo: {producto.tipo}</Card.Subtitle>
+                        <Card.Subtitle className="mb-2 text-muted">Categoria: {producto.categoria}</Card.Subtitle>
                         <Card.Text>
                             Descripción: {producto.descripcion}
                         </Card.Text>

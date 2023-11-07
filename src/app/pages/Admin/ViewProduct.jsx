@@ -6,13 +6,13 @@ const ViewProduct = () => {
   const [products, setProducts] = useState([])
 
     const fetchData = async () => {
-        await fetch('http://localhost:8080/v1/productos')
+        await fetch(`${import.meta.env.VITE_BACKEND_URL}productos`)
         .then(response => response.json())
         .then(data => data)
     }
 
     useEffect(() => {
-        fetch('http://localhost:8080/v1/productos')
+        fetch(`${import.meta.env.VITE_BACKEND_URL}productos`)
             .then(response => response.json())
             .then(data => setProducts(data))
     }, [])
