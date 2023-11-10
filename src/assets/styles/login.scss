@@ -1,0 +1,76 @@
+.login-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.login-photo-background{
+    //background: linear-gradient(212.38deg, rgba(7, 68, 72, 0.632) 0%, rgba(30, 51, 56, 0.71) 100%),url('../images/2.jpeg');
+    //background: linear-gradient(212.38deg, rgba(36, 225, 236, 0.7) 0%, rgba(23, 84, 98, 0.71) 100%),url('../images/2.jpeg');
+    background-position-x: center;
+    background-image: url('../images/2.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+.login-box {
+    background: linear-gradient(126deg, rgba(2,0,36,1) 0%, rgba(8,197,210,1) 42%, rgba(22,101,116,1) 83%);
+}
+.card-container {
+    @extend .card-login;
+    position: relative;
+    width: 80%;
+    height: 80vh;
+    background-color: whitesmoke;
+}
+
+.screen__background {		
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 0;
+	-webkit-clip-path: inset(0 0 0 0);
+	clip-path: inset(0 0 0 0);	
+}
+
+.screen__background__shape {
+	transform: rotate(45deg);
+	position: absolute;
+}
+
+.screen__background__shape1 {
+	height: 520px;
+	width: 520px;
+	background-color:whitesmoke;	
+	top: -50px;
+	right: 120px;	
+	border-radius: 0 72px 0 0;
+}
+
+.screen__background__shape2 {
+	height: 220px;
+	width: 220px;
+	background: $eastern-blue-800;	
+	top: -172px;
+	right: 0;	
+	border-radius: 32px;
+}
+
+.screen__background__shape3 {
+    height: 540px;
+    width: 190px;
+    background: linear-gradient(270deg, #166574, #166574);
+    top: 145px;
+    right: 0;
+    border-radius: 32px;
+}
+
+.screen__background__shape4 {
+    height: 561px;
+    width: 134px;
+    background: #166574;
+    top: 426px;
+    right: 50px;
+    border-radius: 60px;
+}
