@@ -7,9 +7,15 @@ import PageLayout from "../layouts/PageLayout";
 import AdminLayout from "../layouts/AdminLayout";
 import RegisterProduct from "../pages/Admin/RegisterProduct";
 import ViewProduct from "../pages/Admin/ViewProduct";
+import Login from "../pages/login/Login";
 
 export const Router = createBrowserRouter([
   {
+    element: <Login />,
+    path: '/login'
+  },
+  {
+    
     element: <PageLayout />,
     children: [
       {
