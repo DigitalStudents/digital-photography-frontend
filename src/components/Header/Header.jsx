@@ -38,7 +38,7 @@ function Header() {
             style={{ maxHeight: '100px'}}
             navbarScroll
           >
-            <Nav.Link href="#action1" style={{color: 'white'}}>Iniciar Sesion</Nav.Link>
+            <Nav.Link href="/login" style={{color: 'white'}}>Iniciar Sesion</Nav.Link>
             <Nav.Link href="#action2" style={{color: 'white'}}>Registrarse</Nav.Link>
           </Nav>
         </Navbar.Collapse>
