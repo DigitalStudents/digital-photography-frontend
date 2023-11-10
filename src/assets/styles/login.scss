@@ -2,6 +2,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+.logo-container {
+    margin: auto;
+    background-position-x: center;
+    background-image: url('../../public/log.PNG');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 170px;
+    height: 48px;
+    border-radius: 10px;
+}
 .login-photo-background{
     //background: linear-gradient(212.38deg, rgba(7, 68, 72, 0.632) 0%, rgba(30, 51, 56, 0.71) 100%),url('../images/2.jpeg');
     //background: linear-gradient(212.38deg, rgba(36, 225, 236, 0.7) 0%, rgba(23, 84, 98, 0.71) 100%),url('../images/2.jpeg');

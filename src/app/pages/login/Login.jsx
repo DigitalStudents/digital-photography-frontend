@@ -4,29 +4,28 @@ const Login = () => {
   return (
     <section className="login-container">
       <div className="login-box">
-        {" "}
-        Login
         <div className="card-container">
-            <h3>LOGIN</h3>
-            <form>
+            <div>
+            <div className="logo-container"></div>
+
+            </div>
+            <h3 style={{textAlign:'center', marginTop:'50px'}}>Inicio Sesión</h3>
+            <form style={{marginTop: '100px', padding:'50px'}}>
               <input
+                style={{marginBottom: '20px'}}
                 type="text"
                 className="form-control"
                 placeholder="Nombre de usuario"
               />
               <input
-                type="text"
+                style={{marginBottom: '20px'}}
+                type="password"
                 className="form-control"
                 placeholder="Contraseña"
+                
               />
-              <button type="button" class="btn btn-primary">Iniciar sesión</button>
+              <button style={{width:'100%', marginTop:'40px'}} type="button" class="btn btn-primary">Iniciar sesión</button>
             </form>
-            <div className="screen__background">
-            <span class="screen__background__shape screen__background__shape4"></span>
-            <span class="screen__background__shape screen__background__shape3"></span>
-            <span class="screen__background__shape screen__background__shape2"></span>
-
-            </div>
 
         </div>
       </div>
