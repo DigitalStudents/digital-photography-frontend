@@ -28,6 +28,7 @@ const ProductList = () => {
           nombre={p.nombre}
           id={p.id}
           descripcion={p.descripcion}
+          precio_por_dia={p.precio}
           imagen={p.imagenes[0]}
         />
       ))}

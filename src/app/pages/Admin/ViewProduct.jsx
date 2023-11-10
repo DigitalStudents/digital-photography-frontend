@@ -54,7 +54,7 @@ const ViewProduct = () => {
   };
 
   return (
-    <div>
+    <div className="card-container">
       <Table striped bordered hover>
         <thead>
           <tr>

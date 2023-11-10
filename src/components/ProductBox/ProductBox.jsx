@@ -15,7 +15,7 @@ export default function ProductBox({
         <Card.Img variant="top" src={imagen} />
         <Card.Body>
           <Card.Title>{nombre}</Card.Title>
-          <Card.Text>{descripcion}</Card.Text>
+          <Card.Text>Precio por día: $ {precio_por_dia}</Card.Text>
           <Button variant="primary">Ver más</Button>
         </Card.Body>
       </Card>
