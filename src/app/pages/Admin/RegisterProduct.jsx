@@ -4,8 +4,8 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import Dropdown from "react-bootstrap/Dropdown";
 
-const productsEndpoint = "http://localhost:8080/v1/productos";
 const categorysEndpoint = "http://localhost:8080/v1/categorias";
+const productsEndpoint = `${import.meta.env.VITE_BACKEND_URL}productos`;
 const initialProductForm = {
   nombre: "",
   descripcion: "",
