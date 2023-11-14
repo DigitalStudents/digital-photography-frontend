@@ -12,7 +12,7 @@ export default function ProductBox({
   return (
     <Link to={`product/${id}`}>
       <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={imagen} />
+        <Card.Img height={250} variant="top" src={import.meta.env.VITE_IMAGES_URL+id+"%2F"+imagen+"?alt=media"} />
         <Card.Body>
           <Card.Title>{nombre}</Card.Title>
           <Card.Text>Precio por día: $ {precio_por_dia}</Card.Text>
