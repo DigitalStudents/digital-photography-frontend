@@ -1,19 +1,18 @@
 import "./Hero.css";
 
-function Hero() {
+function Hero({heroImage, tilte, subtitle}) {
   return (
     <div className="hero-banner">
       <img
         className="hero-img"
-        src="../../public/camera-hero-banner.webp"
+        src={heroImage}
         alt="camera"
       />
       <div className='overlay'></div>
       <div className="hero-text">
-        <h1>RENTA TU CAMARA IDEAL</h1>
+        <h1>{tilte}</h1>
         <p>
-          Lleva tus producciones a otro nivel con nuestra gran cantidad de
-          productos
+         {subtitle}
         </p>
       </div>
     </div>

@@ -1,13 +1,14 @@
 
 import { createBrowserRouter } from "react-router-dom";
-import ProductDetail from "../../Pages/ProductDetail/ProductDetail";
-import Home from "../../Pages/Home/Home";
-import CategoryPage from "../../Pages/CategoryPage/CategoryPage";
+import ProductDetail from "../pages/ProductDetail/ProductDetail";
+import Home from "../pages/Home/Home";
+import CategoryPage from "../pages/CategoryPage/CategoryPage";
 import PageLayout from "../layouts/PageLayout";
 import AdminLayout from "../layouts/AdminLayout";
 import RegisterProduct from "../pages/Admin/RegisterProduct";
 import ViewProduct from "../pages/Admin/ViewProduct";
 import Login from "../pages/login/Login";
+import DigitalSLR from "../pages/Categories/Photography/DigitalSLR";
 
 export const Router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ export const Router = createBrowserRouter([
           element: <ViewProduct />
           },
         ]
+      },
+      {
+        path:"/digitalSLR",
+        element: <DigitalSLR/>
       }
     ],
   },

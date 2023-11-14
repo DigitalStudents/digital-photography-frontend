@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProductBox from "../ProductBox/ProductBox";
-import "./ProductList.css";
+import './ProductList.css';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -29,7 +29,7 @@ const ProductList = () => {
           id={p.id}
           descripcion={p.descripcion}
           precio_por_dia={p.precio}
-          imagen={p.imagenes[0]}
+          imagen={p.imagenes[1]}
         />
       ))}
     </div>

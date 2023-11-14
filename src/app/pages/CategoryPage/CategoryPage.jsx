@@ -7,7 +7,7 @@ export default function CategoryPage() {
     // Suponiendo que 'productId' realmente debería ser 'categoryId'
     let { categoryId } = useParams();
 
-    // Datos simulados de categorías y productos
+    // Datos simulados de categorías y productos - FETCH DE CATEGORIAS
     const categorias = [
         {nombre: "Cámaras", slug: "camaras", id: 1}, 
         {nombre: "Lentes", slug: "lentes", id: 2}, 
@@ -15,9 +15,9 @@ export default function CategoryPage() {
         {nombre: "Discos", slug: "discos", id: 4},
         {nombre: "Otros", slug: "otros", id: 5}];
 
-    const categoria = categorias.find((c)=>(c.slug == categoryId))
+    const categoria = categorias.find((c)=>(c.slug == categoryId)) // C.SLUG = CATEGORIA.NOMBRE del fecth
 
-    // Suponiendo que quieres mostrar los productos de la categoría seleccionada
+    // Suponiendo que quieres mostrar los productos de la categoría seleccionada - FETCH DE PRODUCTOS
     const productos = [
         {
             "id": 1,
@@ -86,7 +86,7 @@ export default function CategoryPage() {
     ]
 
     // Encuentra los productos de la categoría seleccionada (esto debería provenir del backend)
-    const productosDeCategoria = productos.filter(p => p.categoria === categoria.slug);
+    const productosDeCategoria = productos.filter(p => p.categoria === categoria.slug); // CATEGORIA.SLUG
 
     return (
         <Container className="category-page-container">
