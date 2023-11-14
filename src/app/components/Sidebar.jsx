@@ -4,7 +4,12 @@ import { useNavigate } from "react-router-dom";
 const options = [
   { path: "/admin/register-product", text: "Registrar producto" },
   { path: "/admin/view-product", text: "Listar productos" },
-  { path: "/", text: "Eliminar producto" },
+  { path: "/admin/register-category", text: "Registrar Categoria" },
+  { path: "/admin/view-category", text: "Listar Categorias" },
+  { path: "/admin/register-caracteristica", text: "Registrar Característica" },
+  { path: "/admin/view-caracteristica", text: "Listar Características" },
+  { path: "/admin/register-inventory", text: "Registrar Inventario" },
+
 ];
 const Sidebar = () => {
   const navigate = useNavigate();

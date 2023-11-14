@@ -8,4 +8,9 @@
     margin: 0 auto;   /* Centra el contenedor si lo deseas */
     padding-top: 50px;
 }
+.pagination-info {
+    display: block;
+    line-height: 30px;
+    padding: 0 15px;
+}
 

@@ -7,6 +7,11 @@ import PageLayout from "../layouts/PageLayout";
 import AdminLayout from "../layouts/AdminLayout";
 import RegisterProduct from "../pages/Admin/RegisterProduct";
 import ViewProduct from "../pages/Admin/ViewProduct";
+import RegisterCategory from "../pages/Admin/RegisterCategory";
+import ViewCategory from "../pages/Admin/ViewCategory";
+import RegisterCaracteristica from "../pages/Admin/RegisterCaracteristica";
+import RegisterInventory from "../pages/Admin/RegisterInventory";
+import ViewCaracteristica from "../pages/Admin/ViewCaracteristica";
 import Login from "../pages/login/Login";
 
 export const Router = createBrowserRouter([
@@ -40,6 +45,21 @@ export const Router = createBrowserRouter([
           },
           { path: '/admin/view-product',
           element: <ViewProduct />
+          },
+          { path: '/admin/register-category',
+          element: <RegisterCategory />
+          },
+          { path: '/admin/view-category',
+          element: <ViewCategory />
+          },
+          { path: '/admin/register-caracteristica',
+          element: <RegisterCaracteristica />
+          },
+          { path: '/admin/view-caracteristica',
+          element: <ViewCaracteristica />
+          },
+          { path: '/admin/register-inventory',
+          element: <RegisterInventory/>
           },
         ]
       }
