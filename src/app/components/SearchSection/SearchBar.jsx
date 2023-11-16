@@ -1,9 +1,8 @@
 import "./SearchBar.css";
-import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Dropdown from 'react-bootstrap/Dropdown';
 import NavItem from 'react-bootstrap/NavItem';
 import NavLink from 'react-bootstrap/NavLink';
+import { Link } from "react-router-dom";
 
 function SearchBar() {
   return (
@@ -11,7 +10,7 @@ function SearchBar() {
       <Dropdown as={NavItem}>
         <Dropdown.Toggle as={NavLink}>Photography</Dropdown.Toggle>
         <Dropdown.Menu style={{ color: 'white', backgroundColor: '#0aa8bd', borderBlockColor: '#0aa8bd'}}>
-          <Dropdown.Item style={{ color: 'white'}}>Digital SLR Cameras</Dropdown.Item>
+          <Dropdown.Item style={{ color: 'white'}}><Link to={"/digitalSLR"}>Digital SLR Cameras</Link></Dropdown.Item>
           <Dropdown.Item style={{ color: 'white'}}>Mirrorless Cameras</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>

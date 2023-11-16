@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Table, Button } from "react-bootstrap";
-import "../../../components/ProductList/ProductList.css";
+import "../../components/ProductList/ProductList.css";
 import Swal from "sweetalert2";
 
 const ViewCategory = () => {
