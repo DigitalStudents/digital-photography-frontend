@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Pagination from 'react-bootstrap/Pagination';
 import ProductBox from "../ProductBox/ProductBox";
-import "./ProductList.css";
+import './ProductList.css';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);

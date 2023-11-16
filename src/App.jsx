@@ -1,5 +1,5 @@
 
-import Home from './Pages/Home/Home'
+import Home from './app/pages/Home/Home'
 import './App.css'
 
 

@@ -1,14 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import SearchBar from "../../components/SearchSection/SearchBar";
 import ProductList from "../../components/ProductList/ProductList";
 import Hero from "../../components/HeroBanner/Hero";
 
 function Home() {
   return (
     <>
-      
-      <SearchBar /> 
-      <Hero />
+      <Hero heroImage={"../../public/camera-hero-banner.webp"} tilte={"RENTA TU CÁMARA IDEAL"} subtitle={"Lleva tus producciones a otro nivel con nuestra gran variedad de productos"} />
       <ProductList />
     </>
   );
