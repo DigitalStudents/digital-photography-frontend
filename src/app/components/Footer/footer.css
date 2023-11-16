@@ -1,34 +1,48 @@
-footer{background-color: black;
-    display: flex;
-    justify-content: space-around;
-    height: 247px;
+footer{
+    background-color: black;
     width: 100%;
-    }
+    height: auto;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
 .contacto{
     color:white;
+    font-size:x-large;
 }
-.imgfooter{display: flex;
-        flex-direction: column;
-        padding: 20px 40px;
-        margin: 20px;
+
+.imgfooter{
+    display: flex;
+    flex-direction: column;
+
     
     }
-
+.logofooter{
+    margin-top: 8%;
+}
 .formato{
     background-color: #000;
 }
 
-.iconosfooter{padding: 20px;
-    margin: 10px;
-    word-spacing: 0.6em;
+.iconosfooter{
+    padding: 5%;
     flex-direction: row;
     justify-content: center;
-}
 
+   
+}
+.iconosfooter a {
+    margin: 0 10%; 
+  }
 .menufooter{display: flex;
     flex-direction: row;
-    padding: 20px;
-    margin: 10px;}
+    justify-content: space-around;
+}
     
     .navfooter{padding: 20px;
         margin: 20px;
@@ -37,7 +51,7 @@ footer{background-color: black;
     .ul2{list-style: none;
     }
     
-    .linkfooter{color: white;
+    .linkfooter{color: white; text-decoration: none;
     }
     
     .lifooter{
@@ -45,11 +59,18 @@ footer{background-color: black;
         font-weight: 400;
         font-size: 18px;
         padding-bottom: 15px;
+        text-decoration: none;
     }
 
-    #copyright{color: #8C8C94;
+    #copyright{color: black;
         font-weight: 500;
-        font-size: 15px;
-        padding-top: 50px;
+        font-size: 15px;    
     }
-    
+  
+    .firma {
+        display:flex;
+        justify-content: center;
+        text-align: center;
+        text-align: center;
+        background-color: #0aa8bd;
+      }
