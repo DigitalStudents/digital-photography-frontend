@@ -1,0 +1,30 @@
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(246, 243, 243, 0.603);
+
+  }
+  
+  .center-button {
+    margin-top: auto;
+
+  }
+
+  .link{
+    text-decoration: none;
+  } 
+  .link:hover{
+    text-decoration: none;
+  }
+  .text{
+      align-items: flex-start;
+      margin-top: 2%;
+  }
+  .title{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 10em; 
+  }
