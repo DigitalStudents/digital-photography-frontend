@@ -37,17 +37,19 @@ const ProductList = () => {
   };
 
   return (
-    <div className="product-list">
-      {products.map((product) => (
-        <ProductBox
-          key={product.id}
-          nombre={product.nombre}
-          id={product.id}
-          descripcion={product.descripcion}
-          precio_por_dia={product.precio}
-          imagen={product.imagenes[0]}
-        />
-      ))}
+    <div className="product-list-container">
+      <div className="product-list">
+        {products.map((product) => (
+          <ProductBox
+            key={product.id}
+            nombre={product.nombre}
+            id={product.id}
+            descripcion={product.descripcion}
+            precio_por_dia={product.precio}
+            imagen={product.imagenes[0]}
+          />
+        ))}
+      </div>
 
       <div className="pagination-controls">
         <Pagination>
