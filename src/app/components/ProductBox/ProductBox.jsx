@@ -1,6 +1,10 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { FaHeart, FaRegHeart } from "react-icons/fa"; 
+import "./ProductBox.css"
+
 export default function ProductBox({
   nombre,
   id,
@@ -8,16 +12,47 @@ export default function ProductBox({
   tipo,
   descripcion,
   precio_por_dia,
+  isLoggedIn, 
 }) {
+  const [isFavorito, setIsFavorito] = useState(false);
+
+  const handleToggleFavorito = () => {
+    if (isLoggedIn) {
+      setIsFavorito(!isFavorito);
+      // agregar a favoritos en tu backend
+    } else {
+      alert("Debe iniciar sesión para agregar a favoritos");
+    
+    }
+  };
+
   return (
-    <Link to={`product/${id}`}>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={"https://1023c04-grupo4.s3.us-east-2.amazonaws.com/" + imagen } />
+    
+    <Link className="link" to={`product/${id}`}>
+      
+      <Card style={{ width: "15rem", height:"13rem", position: "relative" }}>
+        <Card.Img variant="top" src={imagen} />
         <Card.Body>
-          <Card.Title>{nombre}</Card.Title>
-          <Card.Text>Precio por día: $ {precio_por_dia}</Card.Text>
-          <Button variant="primary">Ver más</Button>
+          <Card.Title className="title" >{nombre}</Card.Title>
+          <Card.Text className="text">Precio por día: $ {precio_por_dia}</Card.Text>
+          <div className="center-button">
+            <Button variant="primary" >Ver más</Button>
+          </div>
         </Card.Body>
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            padding: "8px",
+            cursor: "pointer",
+            borderRadius: "50%",
+            backgroundColor: "white",
+          }}
+          onClick={handleToggleFavorito}
+        >
+          {isFavorito ? <FaHeart color="red" /> : <FaRegHeart />}
+        </div>
       </Card>
     </Link>
   );
