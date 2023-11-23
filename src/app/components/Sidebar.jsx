@@ -9,6 +9,10 @@ const options = [
   { path: "/admin/register-caracteristica", text: "Registrar Característica" },
   { path: "/admin/view-caracteristica", text: "Listar Características" },
   { path: "/admin/register-inventory", text: "Registrar Inventario" },
+  { path: "/admin/view-reservation", text: "Listar Reservaciones" },
+  { path: "/admin/register-reservation", text: "Registrar Reservacion" },
+  { path: "/admin/view-user", text: "Listar Usuarios" },
+  { path: "/admin/register-user", text: "Registrar Usuarios" },
 
 ];
 const Sidebar = () => {

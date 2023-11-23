@@ -19,7 +19,7 @@ export default function CategoryPage() {
                 console.log(r);
                 setProductos(r);
             })
-            fetch(`${import.meta.env.VITE_BACKEND_URL}categorias`)
+        fetch(`${import.meta.env.VITE_BACKEND_URL}categorias`)
             .then(r => r.json())
             .then(r => {
                 console.log(r);
@@ -54,20 +54,32 @@ export default function CategoryPage() {
                                 <Card className="mb-3">
                                     <Card.Body>
                                         <Card.Title>{producto.nombre}</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted">Categoría: {producto.categoria}</Card.Subtitle>
+                                        <Card.Subtitle className="mb-2 text-muted">Categoría: {producto.categorias[0].nombre}</Card.Subtitle>
                                         <Card.Text>
                                             Descripción: {producto.descripcion}
                                         </Card.Text>
-                                        <h3 className="product-price">Precio: ${producto.precio_por_dia} por día</h3>
-                                        <Button variant="success" className="me-1">Alquilar Ahora</Button>
-                                        <Button variant="primary">Añadir al carrito</Button>
+                                        <h3 className="product-price">Precio: {new Intl.NumberFormat('en-US', {
+                                            style: 'currency',
+                                            currency: "USD"
+                                        }).format(producto.precio)} por día</h3>
+                                        <Container>
+                                            <Row className="justify-content-*-between">
+                                                <Col>
+                                                    <Button variant="success" className="me-1">Alquilar Ahora</Button>
+                                                </Col>
+                                                <Col>
+                                                    <Button variant="primary">Añadir al carrito</Button>
+                                                </Col>
+                                            </Row>
+                                        </Container>
+
                                     </Card.Body>
                                 </Card>
                             </Col>
-                        )): <div>No hay productos en esta categoria</div>}
+                        )) : <div>No hay productos en esta categoria</div>}
                     </Row>
                 </Col>
             </Row>
         </Container>
     );
-}
+} 
