@@ -30,8 +30,8 @@ export default function ProductBox({
     
     <Link className="link" to={`product/${id}`}>
       
-      <Card style={{ width: "15rem", height:"13rem", position: "relative" }}>
-        <Card.Img variant="top" src={imagen} />
+      <Card style={{ width: "12.5rem", height:"23rem", position: "relative" }}>
+        <Card.Img style={{ width: "12.5rem", height:"12rem" }} variant="top" src={imagen} />
         <Card.Body>
           <Card.Title className="title" >{nombre}</Card.Title>
           <Card.Text className="text">Precio por día: $ {precio_por_dia}</Card.Text>
