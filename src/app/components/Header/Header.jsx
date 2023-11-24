@@ -5,8 +5,12 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { SearchBar } from "../SearchBar/SearchBar";
+import { SearchResultsList } from "../SearchBar/SearchResultList";
+import { useState } from "react";
 
 function Header() {
+  const [results, setResults] = useState([]);
   return (
     <Navbar
       bg="dark"
@@ -24,7 +28,7 @@ function Header() {
         </Navbar>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-        <Form className="d-flex ms-auto">
+          {/*         <Form className="d-flex ms-auto">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -32,10 +36,18 @@ function Header() {
               aria-label="Search"
             />
             <Button variant="outline-light">Search</Button>
+          </Form> */}
+
+          <Form className="d-flex ms-auto">
+            <SearchBar setResults={setResults} />
+            {results && results.length > 0 && (
+              <SearchResultsList results={results} />
+            )}
           </Form>
+
           <Nav
             className="ms-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px'}}
+            style={{ maxHeight: "100px" }}
             navbarScroll
           >
             <Nav.Link href="/login" style={{color: 'white'}}>Iniciar Sesion</Nav.Link>
