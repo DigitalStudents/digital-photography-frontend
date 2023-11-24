@@ -99,7 +99,7 @@ export default function ProductDetail() {
         <Row style={{ marginTop: "20px" }}>
           <Col>
             <Card>
-              <Card.Body>
+              <Card.Body style={{width: "100%"}}>
                 <Card.Title>Descripcion</Card.Title>
                 <Card.Text>{producto.descripcion}</Card.Text>
               </Card.Body>
