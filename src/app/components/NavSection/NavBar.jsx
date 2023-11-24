@@ -1,10 +1,11 @@
-import "./SearchBar.css";
+import { Navbar } from "react-bootstrap";
+import "./NavBar.css";
 import Dropdown from 'react-bootstrap/Dropdown';
 import NavItem from 'react-bootstrap/NavItem';
 import NavLink from 'react-bootstrap/NavLink';
 import { Link } from "react-router-dom";
 
-function SearchBar() {
+function NavBar() {
   return (
     <div className="search-section">
       <Dropdown as={NavItem}>
@@ -39,4 +40,4 @@ function SearchBar() {
   );
 }
 
-export default SearchBar;
+export default Navbar;
