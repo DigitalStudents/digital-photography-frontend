@@ -12,17 +12,22 @@ import ViewCategory from "../pages/Admin/ViewCategory";
 import RegisterCaracteristica from "../pages/Admin/RegisterCaracteristica";
 import RegisterInventory from "../pages/Admin/RegisterInventory";
 import ViewCaracteristica from "../pages/Admin/ViewCaracteristica";
+import Auth from "../pages/login/Auth";
 import RegisterReservation from "../pages/Admin/RegisterReservation";
 import ViewReservation from "../pages/Admin/ViewReservation";
 import RegisterUser from "../pages/Admin/RegisterUser";
 import ViewUser from "../pages/Admin/ViewUser";
-import Login from "../pages/login/Login";
+//import Login from "../pages/login/Login";
 
 
 export const Router = createBrowserRouter([
   {
-    element: <Login />,
+    element: <Auth />,
     path: '/login'
+  },
+  {
+    element: <Auth />,
+    path: '/register'
   },
   {
     
@@ -45,7 +50,7 @@ export const Router = createBrowserRouter([
         path: "/admin",
         element: <AdminLayout />,
         children: [
-          { path: '/admin/register-product',
+          { path: '',
           element: <RegisterProduct />
           },
           { path: '/admin/view-product',
