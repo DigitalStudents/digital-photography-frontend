@@ -61,15 +61,15 @@ const ViewUser= () => {
           <tr>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Descripcion</th>
+            <th>Email/Username</th>
           </tr>
         </thead>
         <tbody>
           {categories.map((user) => (
             <tr key={user.id}>
               <td>{user.id}</td>
-              <td>{user.nombre}</td>
-              <td>{user.descripcion}</td>
+              <td>{user.firstName}</td>
+              <td>{user.username}</td>
               <td>
                 <Button
                   variant="danger"

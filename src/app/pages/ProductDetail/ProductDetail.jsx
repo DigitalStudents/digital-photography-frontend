@@ -10,6 +10,7 @@ import { Ri4KFill } from "react-icons/ri";
 import { VscScreenFull } from "react-icons/vsc";
 import { CgScreenShot } from "react-icons/cg";
 import { useEffect, useState } from "react";
+import DatePickerForm from "../../components/DatePickerBookings/DatePicker";
 
 export default function ProductDetail() {
   // Asi llega el parametro de la URL con el id del producto
@@ -74,12 +75,17 @@ export default function ProductDetail() {
                 </div>
               </Card.Body>
             </Card>
+            <Card>
+              <Card.Body>
+                <DatePickerForm />
+              </Card.Body>
+            </Card>
           </Col>
         </Row>
-        <Row style={{ display: "flex", marginTop: "20px", width: "100%" }}>
+        <Row style={{ display: "flex", marginTop: "20px", width: "100%"}}>
           {producto.caracteristicas.map((caracteristica) => (
-            <Col key={caracteristica.id}>
-              <Card style={{ width: "300px", textAlign: "center" }}>
+            <Col key={caracteristica.id} style={{ display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"#0aa8bd"}}>
+              <Card style={{ width: "250px", textAlign: "center" }}>
                 <Card.Body>
                   <Card.Title>
                     {iconosCaracteristicas[caracteristica.nombre] && (
