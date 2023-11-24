@@ -28,7 +28,7 @@ export default function ProductBox({
 
   return (
     
-    <Link className="link" to={`product/${id}`}>
+    <Link className="link" to={`/product/${id}`}>
       
       <Card style={{ width: "12.5rem", height:"23rem", position: "relative" }}>
         <Card.Img style={{ width: "12.5rem", height:"12rem" }} variant="top" src={imagen} />
