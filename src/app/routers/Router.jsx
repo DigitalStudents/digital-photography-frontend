@@ -12,13 +12,17 @@ import ViewCategory from "../pages/Admin/ViewCategory";
 import RegisterCaracteristica from "../pages/Admin/RegisterCaracteristica";
 import RegisterInventory from "../pages/Admin/RegisterInventory";
 import ViewCaracteristica from "../pages/Admin/ViewCaracteristica";
-import Login from "../pages/login/Login";
+import Auth from "../pages/login/Auth";
 
 
 export const Router = createBrowserRouter([
   {
-    element: <Login />,
+    element: <Auth />,
     path: '/login'
+  },
+  {
+    element: <Auth />,
+    path: '/register'
   },
   {
     
