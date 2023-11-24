@@ -13,6 +13,11 @@ import RegisterCaracteristica from "../pages/Admin/RegisterCaracteristica";
 import RegisterInventory from "../pages/Admin/RegisterInventory";
 import ViewCaracteristica from "../pages/Admin/ViewCaracteristica";
 import Auth from "../pages/login/Auth";
+import RegisterReservation from "../pages/Admin/RegisterReservation";
+import ViewReservation from "../pages/Admin/ViewReservation";
+import RegisterUser from "../pages/Admin/RegisterUser";
+import ViewUser from "../pages/Admin/ViewUser";
+import Login from "../pages/login/Login";
 
 
 export const Router = createBrowserRouter([
@@ -65,6 +70,18 @@ export const Router = createBrowserRouter([
           },
           { path: '/admin/register-inventory',
           element: <RegisterInventory/>
+          },
+          { path: '/admin/register-reservation',
+          element: <RegisterReservation/>
+          },
+          { path: '/admin/view-reservation',
+          element: <ViewReservation/>
+          },
+          { path: '/admin/register-user',
+          element: <RegisterUser/>
+          },
+          { path: '/admin/view-user',
+          element: <ViewUser/>
           },
         ]
       },

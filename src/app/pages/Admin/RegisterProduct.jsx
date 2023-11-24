@@ -4,8 +4,12 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import Dropdown from "react-bootstrap/Dropdown";
 import { initializeApp } from "firebase/app";
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -14,15 +18,16 @@ const firebaseConfig = {
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 initializeApp(firebaseConfig);
 
-
 const categorysEndpoint = `${import.meta.env.VITE_BACKEND_URL}categorias`;
 const productsEndpoint = `${import.meta.env.VITE_BACKEND_URL}productos`;
-const caracteristicaEndpoint = `${import.meta.env.VITE_BACKEND_URL}caracteristica`;
+const caracteristicaEndpoint = `${
+  import.meta.env.VITE_BACKEND_URL
+}caracteristica`;
 const initialProductForm = {
   nombre: "",
   descripcion: "",
@@ -31,7 +36,15 @@ const initialProductForm = {
   caracteristicas: [
     {
       id: 0,
-      nombre: "Selecciona Característica"
+      nombre: "Selecciona Característica 1",
+    },
+    {
+      id: 1,
+      nombre: "Selecciona Característica 2",
+    },
+    {
+      id: 2,
+      nombre: "Selecciona Característica 3",
     },
   ],
   categorias: [
@@ -60,20 +73,29 @@ const RegisterProduct = () => {
   const updateCategory = (key, value) => {
     setProductForm({
       ...productForm,
-      [key]: [{ ...value }]
-    })
-  }
+      [key]: [{ ...value }],
+    });
+  };
 
-  const updateCaracteristica = (key, value) => {
+  /*   const updateCaracteristica = (key, value) => {
     setProductForm({
       ...productForm,
-      [key]: [{ ...value }]
-    })
-  }
+      [key]: [{ ...value }],
+    });
+  }; */
+
+  const updateCaracteristica = (index, value) => {
+    const updatedCaracteristicas = [...productForm.caracteristicas];
+    updatedCaracteristicas[index] = { ...value };
+    setProductForm({
+      ...productForm,
+      caracteristicas: updatedCaracteristicas,
+    });
+  };
 
   const uploadImage = (id, file) => {
     const storage = getStorage();
-    const storageRef = ref(storage, 'images/product/' + id +"/"+ file.name);
+    const storageRef = ref(storage, "images/product/" + id + "/" + file.name);
     uploadImage2Spring(id, file);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -81,18 +103,20 @@ const RegisterProduct = () => {
     // 1. 'state_changed' observer, called any time the state changes
     // 2. Error observer, called on failure
     // 3. Completion observer, called on successful completion
-    uploadTask.on('state_changed',
+    uploadTask.on(
+      "state_changed",
       (snapshot) => {
         // Observe state change events such as progress, pause, and resume
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log('Upload is ' + progress + '% done');
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
         switch (snapshot.state) {
-          case 'paused':
-            console.log('Upload is paused');
+          case "paused":
+            console.log("Upload is paused");
             break;
-          case 'running':
-            console.log('Upload is running');
+          case "running":
+            console.log("Upload is running");
             break;
         }
       },
@@ -103,33 +127,35 @@ const RegisterProduct = () => {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log('File available at', downloadURL);
+          console.log("File available at", downloadURL);
         });
       }
     );
   };
 
-  
   const uploadImage2Spring = (productId, file) => {
     const formData = new FormData();
-    formData.append('image', file);
+    formData.append("image", file);
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}productos/${productId}/subir-imagen`, {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+    fetch(
+      `${import.meta.env.VITE_BACKEND_URL}productos/${productId}/subir-imagen`,
+      {
+        method: "POST",
+        body: formData,
       }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Success:', data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   const handleChangeFiles = (e) => {
@@ -170,16 +196,21 @@ const RegisterProduct = () => {
           file.current.value = null;
           /* Todo esto para obtener el id del producto */
           fetch(productsEndpoint, {
-            method: "GET"
-          }).then((allProductsResponse) => {
-            return allProductsResponse.json();
-          }).then((allProductsData) => {
-            console.log(allProductsData, form);
-            const savedProduct = allProductsData.find(e => e.nombre == form.nombre)
-            console.log({ savedProduct });
-            Array.from(images).forEach((file) => {uploadImage(savedProduct.id, file);});
-
+            method: "GET",
           })
+            .then((allProductsResponse) => {
+              return allProductsResponse.json();
+            })
+            .then((allProductsData) => {
+              console.log(allProductsData, form);
+              const savedProduct = allProductsData.find(
+                (e) => e.nombre == form.nombre
+              );
+              console.log({ savedProduct });
+              Array.from(images).forEach((file) => {
+                uploadImage(savedProduct.id, file);
+              });
+            });
         } else {
           Swal.fire(
             "Error guardando producto!",
@@ -200,7 +231,8 @@ const RegisterProduct = () => {
 
   useEffect(() => {
     const { nombre, categorias, descripcion, precio, imagenes } = productForm;
-    const validityTextFields = !!nombre && !!categorias[0]?.nombre && !!descripcion;
+    const validityTextFields =
+      !!nombre && !!categorias[0]?.nombre && !!descripcion;
     const validityNumberFields = precio > 0;
     const validityFiles = imagenes.length > 0;
 
@@ -237,7 +269,6 @@ const RegisterProduct = () => {
         console.log("Response", resp);
         setCaracteristicas(resp);
       });
-
   }, []);
 
   return (
@@ -269,21 +300,25 @@ const RegisterProduct = () => {
         </Dropdown>
 
         <label>Caracteristicas: </label>
-        <Dropdown>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            {productForm.caracteristicas[0].nombre}
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            {caracteristicas.map((caracteristica, idx) => (
-              <Dropdown.Item
-                key={idx}
-                onClick={() => updateCaracteristica("caracteristicas", caracteristica)}
-              >
-                {caracteristica.nombre}
-              </Dropdown.Item>
-            ))}
-          </Dropdown.Menu>
-        </Dropdown>
+        <div style={{ display: "flex", gap: "20px" }}>
+          {[0, 1, 2].map((index) => (
+            <Dropdown key={index}>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                {productForm.caracteristicas[index].nombre}
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                {caracteristicas.map((caracteristica, idx) => (
+                  <Dropdown.Item
+                    key={idx}
+                    onClick={() => updateCaracteristica(index, caracteristica)}
+                  >
+                    {caracteristica.nombre}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          ))}
+        </div>
 
         <label>Descripción: </label>
         <textarea

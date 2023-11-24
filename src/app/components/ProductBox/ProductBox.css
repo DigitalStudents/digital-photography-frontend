@@ -4,12 +4,12 @@
     flex-direction: column;
     align-items: center;
     background-color: rgba(246, 243, 243, 0.603);
-
   }
-  
+.card{
+  margin: 3% -13%;
+}
   .center-button {
     margin-top: auto;
-
   }
 
   .link{
@@ -26,5 +26,5 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        max-width: 10em; 
+        max-width: 9em; 
   }
