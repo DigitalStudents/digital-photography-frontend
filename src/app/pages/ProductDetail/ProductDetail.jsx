@@ -4,6 +4,7 @@ import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import "./ProductDetail.css";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import BreadcrumbProductDetail from "../../components/BreadcrumProductDetail/BreadcrumProductDetail";
+import Share from "../../components/ShareButtons/Share";
 import { FaWifi } from "react-icons/fa";
 import { Ri4KFill } from "react-icons/ri";
 import { VscScreenFull } from "react-icons/vsc";
@@ -43,7 +44,7 @@ export default function ProductDetail() {
             <BreadcrumbProductDetail name={producto.nombre} />
           </Col>
         </Row>
-        <Row style={{display:"flex", width:"100%"}}>
+        <Row style={{ display: "flex", width: "100%" }}>
           <Col>
             <Card className="product-detail-card">
               {producto.imagenes && (
@@ -56,7 +57,7 @@ export default function ProductDetail() {
           </Col>
           <Col>
             <Card>
-              <Card.Body style={{width: "100%" }}>
+              <Card.Body style={{ width: "100%" }}>
                 <Card.Title>{producto.nombre}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
                   Categoria: {producto.categorias.nombre}
@@ -64,15 +65,18 @@ export default function ProductDetail() {
                 <h3 className="product-price">
                   Precio por día: $ {producto.precio}
                 </h3>
-                <Button variant="success" className="me-1">
-                  Alquilar Ahora
-                </Button>
-                <Button variant="primary">Añadir al carrito</Button>
+                <div>
+                  <Button variant="success" className="me-1">
+                    Alquilar Ahora
+                  </Button>
+                  <Button variant="primary">Añadir al carrito</Button>
+                  <Share title = {producto.nombre} />
+                </div>
               </Card.Body>
             </Card>
           </Col>
         </Row>
-        <Row style={{ display: "flex", marginTop: "20px", width: "100%"}}>
+        <Row style={{ display: "flex", marginTop: "20px", width: "100%" }}>
           {producto.caracteristicas.map((caracteristica) => (
             <Col key={caracteristica.id}>
               <Card style={{ width: "300px", textAlign: "center" }}>
@@ -92,7 +96,7 @@ export default function ProductDetail() {
             </Col>
           ))}
         </Row>
-        <Row style={{marginTop: "20px"}}>
+        <Row style={{ marginTop: "20px" }}>
           <Col>
             <Card>
               <Card.Body>
