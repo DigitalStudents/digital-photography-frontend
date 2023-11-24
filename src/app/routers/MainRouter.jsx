@@ -1,24 +1,31 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Auth from '../pages/login/Auth'
-import PublicRouter from './PublicRouter'
-import PrivateRouter from './PrivateRouter'
-import PrivateRoutes from './PrivateRoutes'
+import React from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Auth from "../pages/login/Auth";
+import PublicRouter from "./PublicRouter";
+import PrivateRouter from "./PrivateRouter";
+import PrivateRoutes from "./PrivateRoutes";
+import Home from "../pages/Home/Home";
 
 const MainRouter = () => {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path='/*' element={
-                    <PrivateRouter>
-                        <PrivateRoutes />
-                    </PrivateRouter>
-                }/>
-            </Routes>
-            <PublicRouter />
-            
-        </BrowserRouter>
-    )
-}
+  return (
+    <BrowserRouter>
 
-export default MainRouter
+        <PublicRouter />
+        <Routes>
+         <Route
+          path="/*"
+          
+          element={
+            <PrivateRouter>
+              <PrivateRoutes />
+            </PrivateRouter>
+          }
+        />
+        <Route path="/" element={<Navigate to="/home"/>}></Route>
+        
+        </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default MainRouter;

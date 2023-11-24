@@ -17,7 +17,7 @@ import RegisterReservation from "../pages/Admin/RegisterReservation";
 import ViewReservation from "../pages/Admin/ViewReservation";
 import RegisterUser from "../pages/Admin/RegisterUser";
 import ViewUser from "../pages/Admin/ViewUser";
-import Login from "../pages/login/Login";
+//import Login from "../pages/login/Login";
 
 
 export const Router = createBrowserRouter([
@@ -50,7 +50,7 @@ export const Router = createBrowserRouter([
         path: "/admin",
         element: <AdminLayout />,
         children: [
-          { path: '/admin/register-product',
+          { path: '',
           element: <RegisterProduct />
           },
           { path: '/admin/view-product',

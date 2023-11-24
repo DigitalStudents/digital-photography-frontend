@@ -1,15 +1,14 @@
-
-import Home from './app/pages/Home/Home'
-import './App.css'
-import MainRouter from './app/routers/MainRouter'
+import "./App.css";
+import MainRouter from "./app/routers/MainRouter";
+import '../src/app/utilities/interceptor'
 
 
 function App() {
   return (
     <>
-    <MainRouter />
+      <MainRouter />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

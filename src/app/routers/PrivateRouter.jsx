@@ -1,9 +1,11 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
+
 
 const PrivateRouter = ({children}) => {
+  const isAuth = sessionStorage.getItem("token") && sessionStorage.getItem("username")
   return (
-    children
+    isAuth ? children : <></>
   )
 }
 
