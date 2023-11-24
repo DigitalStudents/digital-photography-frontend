@@ -9,10 +9,11 @@ import {
 import './index.css'
 import './assets/styles/main.scss'
 import { Router } from './app/routers/Router.jsx';
+import MainRouter from './app/routers/MainRouter.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={Router} />
+    <App />
   </React.StrictMode>,
 )
