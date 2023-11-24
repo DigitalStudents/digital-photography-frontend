@@ -77,7 +77,7 @@ export default function ProductDetail() {
             </Card>
             <Card>
               <Card.Body>
-                <DatePickerForm />
+                <DatePickerForm productId={productId}/>
               </Card.Body>
             </Card>
           </Col>

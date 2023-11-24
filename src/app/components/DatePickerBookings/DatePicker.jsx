@@ -4,7 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 
 
-const DatePickerForm = () => {
+const DatePickerForm = ({productId}) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
@@ -36,7 +36,7 @@ const DatePickerForm = () => {
         <DatePicker
           selected={startDate}
           onChange={handleStartDateChange}
-          dateFormat="dd/MM/yyyy"
+          dateFormat="dd-MM-yyyy"
         />
       </div>
       <div>
@@ -44,7 +44,7 @@ const DatePickerForm = () => {
         <DatePicker
           selected={endDate}
           onChange={handleEndDateChange}
-          dateFormat="dd/MM/yyyy"
+          dateFormat="dd-MM-yyyy"
         />
       </div>
       <button type="submit">Enviar</button>
