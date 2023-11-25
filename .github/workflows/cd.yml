@@ -5,14 +5,46 @@ on:
     branches: [ "deploy" ]
 
 jobs:
-  build:
-    runs-on:
+    start-runner:
+        name: Start self-hosted EC2 runner
+        runs-on:
+            group: Default
+        outputs:
+          label: ${{ steps.start-ec2-runner.outputs.label }}
+          ec2-instance-id: i-0f0df2475ddb24265
+        steps:
+          - name: Configure AWS credentials
+            uses: aws-actions/configure-aws-credentials@v1
+            with:
+              aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+              aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+              aws-region: us-east-1
+          - name: Start EC2 runner
+            id: start-ec2-runner
+            uses: machulav/ec2-github-runner@v2
+            with:
+              mode: start
+              #github-token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+              ec2-image-id: ami-0fc5d935ebf8bc3bc
+              ec2-instance-type: t2.micro
+              subnet-id: subnet-0bbe53279ae0d3f0c
+              security-group-id: sg-037f4b0efd3914ca9
+    do-the-job:
+      name: Do the job on the runner
+      needs: start-runner # required to start the main job when the runner is ready
+      runs-on:
         group: Default
+      steps:
+        - name: Hello World
+          run: echo 'Hello World!'
+    build:
+      runs-on:
+          group: Default
 
-    steps:
-      - name: Pull Docker image
-        run: sudo docker pull nicolaspineda255/digital-photography-frontend:latest
-      - name: Delete Old docker container
-        run: sudo docker rm -f digital-photography-frontend-container || true
-      - name: Run Docker Container
-        run: sudo docker run -d -p 5173:5173 --name digital-photography-frontend-container nicolaspineda255/digital-photography-frontend
+      steps:
+        - name: Pull Docker image
+          run: sudo docker pull nicolaspineda255/digital-photography-frontend:latest
+        - name: Delete Old docker container
+          run: sudo docker rm -f digital-photography-frontend-container || true
+        - name: Run Docker Container
+          run: sudo docker run -d -p 5173:5173 --name digital-photography-frontend-container nicolaspineda255/digital-photography-frontend
