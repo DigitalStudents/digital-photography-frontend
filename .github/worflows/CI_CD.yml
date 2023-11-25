@@ -23,7 +23,7 @@ jobs:
             run: docker push nicolaspineda255/digital-photography-backend:latest
     deploy_project:
         name: Deploy Project
-        needs: CI
+        needs: build_project
         runs-on:
             group: Default  
         steps:
