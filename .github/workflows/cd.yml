@@ -23,7 +23,7 @@ jobs:
             uses: machulav/ec2-github-runner@v2
             with:
               mode: start
-              github-token: ASY3EDSNYIQUTW2BUHQJJBDFMJBXC
+              github-token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
               ec2-image-id: ami-0fc5d935ebf8bc3bc
               ec2-instance-type: t2.micro
               subnet-id: subnet-0bbe53279ae0d3f0c
@@ -36,14 +36,14 @@ jobs:
       steps:
         - name: Hello World
           run: echo 'Hello World!'
-    build:
-      runs-on:
-          group: Default
-
-      steps:
-        - name: Pull Docker image
-          run: sudo docker pull nicolaspineda255/digital-photography-frontend:latest
-        - name: Delete Old docker container
-          run: sudo docker rm -f digital-photography-frontend-container || true
-        - name: Run Docker Container
-          run: sudo docker run -d -p 5173:5173 --name digital-photography-frontend-container nicolaspineda255/digital-photography-frontend
+    #build:
+    #  runs-on:
+    #      group: Default
+#
+    #  steps:
+    #    - name: Pull Docker image
+    #      run: sudo docker pull nicolaspineda255/digital-photography-frontend:latest
+    #    - name: Delete Old docker container
+    #      run: sudo docker rm -f digital-photography-frontend-container || true
+    #    - name: Run Docker Container
+    #      run: sudo docker run -d -p 5173:5173 --name digital-photography-frontend-container nicolaspineda255/digital-photography-frontend
