@@ -1,11 +1,13 @@
 name: CI/CD Pipeline
 
 on:
-    push:
-      branches: [ "deploy" ]
+  push:
+    branches:
+      - deploy
 
 jobs:
     CI:
+        name: CI
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v3
@@ -20,6 +22,7 @@ jobs:
           - name: Push to Dockerhub
             run: docker push nicolaspineda255/digital-photography-backend:latest
     CD:
+        name: CD
         needs: CI
         runs-on:
             group: Default  
