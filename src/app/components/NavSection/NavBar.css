@@ -1,0 +1,14 @@
+.search-section{
+    background-color: #0aa8bd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    height: 35px;
+    top: 68px;
+    color: white;
+    gap: 70px;
+}
+

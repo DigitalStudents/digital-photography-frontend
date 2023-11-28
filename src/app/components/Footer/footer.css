@@ -1,0 +1,87 @@
+footer{
+    background-color: rgb(34, 38, 42);
+    width: 100%;
+    height: auto;
+
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.contacto{
+    color:white;
+    font-size:x-large;
+}
+
+.imgfooter{
+    display: flex;
+    flex-direction: column;
+
+    
+    }
+.logofooter{
+    margin-top: 8%;
+}
+.formato{
+    background-color: #000;
+}
+
+.iconosfooter{
+    padding: 5%;
+    flex-direction: row;
+    justify-content: center;
+
+   
+}
+.iconosfooter a {
+    margin: 0 10%; 
+  }
+.menufooter{display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+    
+    .navfooter{padding: 20px;
+        margin: 20px;
+
+    }
+
+    .ul2{list-style: none;
+
+    }
+
+    .linkfooter{
+        color: white;
+        text-decoration: none;
+    }
+    
+    .linkfooter:hover{
+        color: rgb(209, 202, 202);
+        text-decoration: none;
+        
+    }
+    .lifooter{
+        font-family: 'Be Vietnam Pro', sans-serif; 
+        font-weight: 400;
+        font-size: 18px;
+        padding-bottom: 15px;
+        text-decoration: none;
+    }
+
+    #copyright{color: rgb(255, 255, 255);
+        font-weight: 500;
+        font-size: 15px;
+        margin-top: 4px;    
+    }
+  
+    .firma {
+        display:flex;
+        justify-content: center;
+        text-align: center;
+        text-align: center;
+        background-color: #0aa8bd;
+      }

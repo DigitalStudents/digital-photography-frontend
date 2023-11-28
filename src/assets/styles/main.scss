@@ -1,0 +1,14 @@
+@import './colors';
+@import './buttons';
+@import './sidebar';
+@import './cards';
+@import './admin';
+@import './login';
+
+.main-layout {
+    display: grid;
+    grid-template-rows: 1fr 10fr 1fr;
+}
+.test {
+    background-color: $eastern-blue-50;
+}

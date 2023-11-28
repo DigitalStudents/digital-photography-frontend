@@ -1,0 +1,22 @@
+.custom-navbar{
+    color: white;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    color: white;
+    font-size: x-large;
+    text-decoration: none;
+}
+
+.link{
+    margin-left: 20px;
+}
+
+.search-container{
+    display: flex;
+    align-items: center;
+}

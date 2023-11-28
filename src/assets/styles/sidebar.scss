@@ -1,0 +1,21 @@
+
+.sidebar-box {
+ list-style-type: none;
+ padding: 0px;
+}
+.sidebar-container {
+    background-color: $eastern-blue-600;
+    height: inherit;
+    border-radius: 0px 15px 15px 0px;
+}
+.sidebar-title{
+    padding-top: 10px;
+    margin-top: 20px;  
+    margin-bottom: 50px;
+    text-align: center;
+    color: white;
+    font-style: italic;
+}
+hr {
+    margin: 0px;
+}
