@@ -29,7 +29,7 @@ function Home() {
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <h1>HOLA MUNDO DESDE AWS</h1>
+        <h1></h1>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -38,7 +38,7 @@ function Home() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-      <Hero heroImage={"/camera-hero-banner.webp"} tilte={"RENTA TU CÁMARA IDEAL"} subtitle={"Lleva tus producciones a otro nivel con nuestra gran variedad de productos"} />
+      <Hero heroImage={"/camera-hero-banner.webp"} tilte={"HOLA MUNDO DESDE AWS"} subtitle={"Lleva tus producciones a otro nivel con nuestra gran variedad de productos"} />
       
       <h1 className="title-container">Productos que pueden interesarte</h1>
 
