@@ -1,7 +1,7 @@
+
 import { useParams } from "react-router-dom";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
-import "./ProductDetail.css";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import BreadcrumbProductDetail from "../../components/BreadcrumProductDetail/BreadcrumProductDetail";
 import Share from "../../components/ShareButtons/Share";
@@ -9,15 +9,13 @@ import { FaWifi } from "react-icons/fa";
 import { Ri4KFill } from "react-icons/ri";
 import { VscScreenFull } from "react-icons/vsc";
 import { CgScreenShot } from "react-icons/cg";
-import { useEffect, useState } from "react";
+import "./ProductDetail.css";
 import DatePickerForm from "../../components/DatePickerBookings/DatePicker";
 
 export default function ProductDetail() {
-  // Asi llega el parametro de la URL con el id del producto
-  let { productId } = useParams();
+  const { productId } = useParams();
   const [producto, setProducto] = useState(null);
 
-  // Cuando el backend este listo se reemplaza esto por la consulta al producto real
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}productos/${productId}`)
       .then((r) => r.json())
@@ -41,24 +39,21 @@ export default function ProductDetail() {
     return (
       <Container className="product-detail-container">
         <Row>
-          <Col>
+          <Col md={8} className="main-content">
             <BreadcrumbProductDetail name={producto.nombre} />
-          </Col>
-        </Row>
-        <Row style={{ display: "flex", width: "100%" }}>
-          <Col>
             <Card className="product-detail-card">
               {producto.imagenes && (
                 <ImageGallery
                   productImages={producto.imagenes}
                   id={producto.id}
+                  className="img-fluid"
                 />
               )}
             </Card>
           </Col>
-          <Col>
+          <Col md={4} style={{ marginTop: '3.2%' }} className="side-content">
             <Card>
-              <Card.Body style={{ width: "100%" }}>
+              <Card.Body>
                 <Card.Title>{producto.nombre}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
                   Categoria: {producto.categorias.nombre}
@@ -66,12 +61,12 @@ export default function ProductDetail() {
                 <h3 className="product-price">
                   Precio por día: $ {producto.precio}
                 </h3>
-                <div>
+                <div className="buttons-container">
                   <Button variant="success" className="me-1">
                     Alquilar Ahora
                   </Button>
                   <Button variant="primary">Añadir al carrito</Button>
-                  <Share title = {producto.nombre} />
+                  <Share title={producto.nombre} />
                 </div>
               </Card.Body>
             </Card>
@@ -82,10 +77,10 @@ export default function ProductDetail() {
             </Card>
           </Col>
         </Row>
-        <Row style={{ display: "flex", marginTop: "20px", width: "100%"}}>
+        <Row style={{ display: "flex", marginTop: "20px", width: "100%" }}>
           {producto.caracteristicas.map((caracteristica) => (
-            <Col key={caracteristica.id} style={{ display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"#0aa8bd"}}>
-              <Card style={{ width: "250px", textAlign: "center" }}>
+            <Col key={caracteristica.id}>
+              <Card style={{ width: "300px", textAlign: "center" }}>
                 <Card.Body>
                   <Card.Title>
                     {iconosCaracteristicas[caracteristica.nombre] && (
@@ -102,10 +97,10 @@ export default function ProductDetail() {
             </Col>
           ))}
         </Row>
-        <Row style={{ marginTop: "20px" }}>
+        <Row>
           <Col>
-            <Card>
-              <Card.Body style={{width: "100%"}}>
+            <Card className="description-container">
+              <Card.Body>
                 <Card.Title>Descripcion</Card.Title>
                 <Card.Text>{producto.descripcion}</Card.Text>
               </Card.Body>
