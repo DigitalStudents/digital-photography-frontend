@@ -29,6 +29,7 @@ function Home() {
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
+        <h1>HOLA MUNDO DESDE AWS</h1>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
