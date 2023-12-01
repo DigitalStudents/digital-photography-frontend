@@ -25,11 +25,13 @@
 .login-box {
     background: linear-gradient(126deg, rgba(2,0,36,1) 0%, rgba(8,197,210,1) 42%, rgba(22,101,116,1) 83%);
 }
-.card-container {
+.card-login-container {
     @extend .card-login;
+    margin: 50px auto;
+    border-radius: 10px;
+    padding: 20px;
     position: relative;
     width: 80%;
-    height: 80vh;
     background-color: whitesmoke;
 }
 

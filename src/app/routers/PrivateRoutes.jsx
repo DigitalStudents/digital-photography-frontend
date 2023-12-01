@@ -19,30 +19,30 @@ const PrivateRoutes = () => {
     <Routes>
       <Route element={<PageLayout />}>
 
-      <Route path="/admin" element={<AdminLayout />}>
-        <Route path="/admin/register-product" element={<RegisterProduct />} />
-        <Route path="/admin/view-product" element={<ViewProduct />} />
-        <Route path="/admin/register-category" element={<RegisterCategory />} />
-        <Route path="/admin/view-category" element={<ViewCategory />} />
+      <Route path="/" element={<AdminLayout />}>
+        <Route path="/register-product" element={<RegisterProduct />} />
+        <Route path="/view-product" element={<ViewProduct />} />
+        <Route path="/register-category" element={<RegisterCategory />} />
+        <Route path="/view-category" element={<ViewCategory />} />
         <Route
-          path="/admin/register-caracteristica"
+          path="/register-caracteristica"
           element={<RegisterCaracteristica />}
         />
         <Route
-          path="/admin/view-caracteristica"
+          path="/view-caracteristica"
           element={<ViewCaracteristica />}
         />
         <Route
-          path="/admin/register-inventory"
+          path="/register-inventory"
           element={<RegisterInventory />}
         />
         <Route
-          path="/admin/register-reservation"
+          path="/register-reservation"
           element={<RegisterReservation />}
         />
-        <Route path="/admin/view-reservation" element={<ViewReservation />} />
-        <Route path="/admin/register-user" element={<RegisterUser />} />
-        <Route path="/admin/view-user" element={<ViewUser />} />
+        <Route path="/view-reservation" element={<ViewReservation />} />
+        <Route path="/register-user" element={<RegisterUser />} />
+        <Route path="/view-user" element={<ViewUser />} />
       </Route>
       </Route>
     </Routes>
