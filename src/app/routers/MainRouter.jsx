@@ -13,8 +13,7 @@ const MainRouter = () => {
         <PublicRouter />
         <Routes>
          <Route
-          path="/*"
-          
+          path="/admin/*"
           element={
             <PrivateRouter>
               <PrivateRoutes />
