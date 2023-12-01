@@ -13,6 +13,9 @@ import RegisterReservation from "../pages/Admin/RegisterReservation";
 import RegisterUser from "../pages/Admin/RegisterUser";
 import ViewUser from "../pages/Admin/ViewUser";
 import PageLayout from "../layouts/PageLayout";
+import UserLayout from "../layouts/UserLayout";
+import FavsProducts from "../pages/User/FavsProducts";
+import UserProfile from "../pages/User/UserProfile";
 
 const PrivateRoutes = () => {
   return (
@@ -43,6 +46,10 @@ const PrivateRoutes = () => {
         <Route path="/admin/view-reservation" element={<ViewReservation />} />
         <Route path="/admin/register-user" element={<RegisterUser />} />
         <Route path="/admin/view-user" element={<ViewUser />} />
+      </Route>
+      <Route path="/user" element={<UserLayout/>}>
+        <Route path="/user/profile" element={<UserProfile />} />
+        <Route path="/user/favorites" element={<FavsProducts/>} />
       </Route>
       </Route>
     </Routes>

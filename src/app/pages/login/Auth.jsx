@@ -3,7 +3,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const loginEndpoint = "http://localhost:8080/user/auth/login";
+
+const loginEndpoint = `${import.meta.env.VITE_BACKEND_AUTH}/user/auth/login`;
+
 const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 const Auth = () => {
   const { pathname } = useLocation();
@@ -55,7 +57,7 @@ const Login = () => {
       .then((token) => {
         sessionStorage.setItem("username", e.username);
         sessionStorage.setItem("token", token);
-        sessionStorage.setItem("role", "ADMIN");
+        sessionStorage.setItem("role", "USER");
         navigate("/home")
       })
       .catch((err) => {
