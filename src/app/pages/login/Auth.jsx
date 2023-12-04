@@ -7,6 +7,7 @@ import { jwtDecode } from "jwt-decode";
 
 
 const loginEndpoint = `${import.meta.env.VITE_BACKEND_AUTH}/user/auth/login`;
+const registerEndpoint = `${import.meta.env.VITE_BACKEND_AUTH}/user/crud/register`;
 
 const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 const formInital = { firstName: "", lastName:"",username: "", password: "", "confirm-pass":"" }
@@ -64,6 +65,8 @@ const Login = () => {
         sessionStorage.setItem("token", token);
         sessionStorage.setItem("role", tokenDecode['role']);
         sessionStorage.setItem("userId", tokenDecode['userId']);
+        sessionStorage.setItem("firstName", tokenDecode['firstName']);
+        sessionStorage.setItem("lastName", tokenDecode['lastName']);
         navigate("/home")
       })
       .catch((err) => {
@@ -140,7 +143,7 @@ const Register = () => {
     setLoading(true)
     delete valdiForm["confirm-pass"]
     valdiForm['role'] = "USER"
-    fetch(`${authUrl}/register`, {
+    fetch(registerEndpoint, {
       method: "POST",
       body: JSON.stringify(valdiForm),
       headers: {

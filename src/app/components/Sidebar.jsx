@@ -21,13 +21,13 @@ const UserOptions = [
   { path: "/user/reservations", text: "Reservaciones" },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({name}) => {
   const isAdmin = sessionStorage.getItem("role");
   const navigate = useNavigate();
 
   return (
     <nav className="sidebar-container">
-      <h4 className="sidebar-title">{isAdmin === 'ADMIN' ? 'Hola, Admin' : 'Hola, Usuario'}</h4>
+      <h4 className="sidebar-title">Hola, {name}</h4>
       <hr />
       <ul className="sidebar-box">
         {(isAdmin === 'ADMIN' ? options : UserOptions).map((option, id) => (

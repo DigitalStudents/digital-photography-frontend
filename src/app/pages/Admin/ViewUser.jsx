@@ -11,7 +11,7 @@ const ViewUser= () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_USERS_URL}`
+          `${import.meta.env.VITE_BACKEND_USERS_URL}users`
         );
         const data = await response.json();
         const filteredUsers = data.filter((user) => !user.deleted);

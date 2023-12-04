@@ -58,12 +58,12 @@ function Header() {
             navbarScroll
           >
             {isAuth ? (
-/*               isAdmin === "ADMIN" ? (
+              isAdmin === "ADMIN" ? (
                 <AdminButton username={username} />
               ) : (
                 <UserButton username={username} />
-              ) */
-              <UserButton username={username} />
+              )
+              
             ) : (
               <>
                 <Nav.Link href="/login" style={{ color: "white" }}>
