@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 const PrivateRouter = ({children}) => {
-  const isAuth = sessionStorage.getItem("token") && sessionStorage.getItem("username") && "ADMIN" ===sessionStorage.getItem("role")
+  const isAuth = sessionStorage.getItem("token") && sessionStorage.getItem("username") && sessionStorage.getItem("role")
   return (
     isAuth ? children : <NotAdminAuthenticated />
   )
@@ -22,9 +22,9 @@ const NotAdminAuthenticated = () => {
 
   return (
     <div>
-      <h1>USUARIO NO AUTORIZADO</h1>
+      <h1>Debes Iniciar Sesión</h1>
       <h3>Redirigiendo a login...</h3>
     </div>
   )
 }
-export default PrivateRouter
+export {PrivateRouter, NotAdminAuthenticated};
