@@ -10,6 +10,7 @@ import { Ri4KFill } from "react-icons/ri";
 import { VscScreenFull } from "react-icons/vsc";
 import { CgScreenShot } from "react-icons/cg";
 import "./ProductDetail.css";
+import DatePickerForm from "../../components/DatePickerBookings/DatePicker";
 
 export default function ProductDetail() {
   const { productId } = useParams();
@@ -69,29 +70,32 @@ export default function ProductDetail() {
                 </div>
               </Card.Body>
             </Card>
+            <Card>
+              <Card.Body>
+                <DatePickerForm productId={productId}/>
+              </Card.Body>
+            </Card>
           </Col>
         </Row>
-        <Row>
-          <Col>
-            <div className="caracteristicas-container">
-              {producto.caracteristicas.map((caracteristica) => (
-                <Card key={caracteristica.id}>
-                  <Card.Body>
-                    <Card.Title>
-                      {iconosCaracteristicas[caracteristica.nombre] && (
-                        <span style={{ marginRight: "0.5rem" }}>
-                          {React.createElement(
-                            iconosCaracteristicas[caracteristica.nombre]
-                          )}
-                        </span>
-                      )}
-                      {caracteristica.nombre}
-                    </Card.Title>
-                  </Card.Body>
-                </Card>
-              ))}
-            </div>
-          </Col>
+        <Row style={{ display: "flex", marginTop: "20px", width: "100%" }}>
+          {producto.caracteristicas.map((caracteristica) => (
+            <Col key={caracteristica.id}>
+              <Card style={{ width: "300px", textAlign: "center" }}>
+                <Card.Body>
+                  <Card.Title>
+                    {iconosCaracteristicas[caracteristica.nombre] && (
+                      <span style={{ marginRight: "5px" }}>
+                        {React.createElement(
+                          iconosCaracteristicas[caracteristica.nombre]
+                        )}
+                      </span>
+                    )}
+                    {caracteristica.nombre}
+                  </Card.Title>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
         </Row>
         <Row>
           <Col>

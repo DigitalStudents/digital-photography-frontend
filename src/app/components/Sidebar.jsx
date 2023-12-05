@@ -13,26 +13,34 @@ const options = [
   { path: "/admin/register-reservation", text: "Registrar Reservacion" },
   { path: "/admin/view-user", text: "Listar Usuarios" },
   { path: "/admin/register-user", text: "Registrar Usuarios" },
-
 ];
-const Sidebar = () => {
+
+const UserOptions = [
+  { path: "/user/profile", text: "Perfil" },
+  { path: "/user/favorites", text: "Productos Favoritos" },
+  { path: "/user/reservations", text: "Reservaciones" },
+];
+
+const Sidebar = ({name}) => {
+  const isAdmin = sessionStorage.getItem("role");
   const navigate = useNavigate();
+
   return (
     <nav className="sidebar-container">
-      <h4 className="sidebar-title">Hola, Admin</h4>
-      <hr/>
+      <h4 className="sidebar-title">Hola, {name}</h4>
+      <hr />
       <ul className="sidebar-box">
-        {options.map((option, id) => (
+        {(isAdmin === 'ADMIN' ? options : UserOptions).map((option, id) => (
           <li key={id}>
             <button
-                onClick={() => navigate(option.path)}
+              onClick={() => navigate(option.path)}
               style={{ width: "100%" }}
               type="button"
               className="btn btn-primary"
             >
               {option.text}
             </button>
-            <hr/>
+            <hr />
           </li>
         ))}
       </ul>
