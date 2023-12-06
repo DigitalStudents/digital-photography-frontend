@@ -39,7 +39,7 @@ export default function ProductDetail() {
     return (
       <Container className="product-detail-container">
         <Row>
-          <Col md={8} className="main-content">
+          <Col md={7} className="main-content">
             <BreadcrumbProductDetail name={producto.nombre} />
             <Card className="product-detail-card">
               {producto.imagenes && (
@@ -74,28 +74,30 @@ export default function ProductDetail() {
               <Card.Body>
                 <DatePickerForm productId={productId}/>
               </Card.Body>
-            </Card>
+            </Card> 
           </Col>
         </Row>
-        <Row style={{ display: "flex", marginTop: "20px", width: "100%" }}>
-          {producto.caracteristicas.map((caracteristica) => (
-            <Col key={caracteristica.id}>
-              <Card style={{ width: "300px", textAlign: "center" }}>
-                <Card.Body>
-                  <Card.Title>
-                    {iconosCaracteristicas[caracteristica.nombre] && (
-                      <span style={{ marginRight: "5px" }}>
-                        {React.createElement(
-                          iconosCaracteristicas[caracteristica.nombre]
-                        )}
-                      </span>
-                    )}
-                    {caracteristica.nombre}
-                  </Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
+        <Row>
+          <Col>
+            <div className="caracteristicas-container">
+              {producto.caracteristicas.map((caracteristica) => (
+                <Card key={caracteristica.id}>
+                  <Card.Body>
+                    <Card.Title>
+                      {iconosCaracteristicas[caracteristica.nombre] && (
+                        <span style={{ marginRight: "0.5rem" }}>
+                          {React.createElement(
+                            iconosCaracteristicas[caracteristica.nombre]
+                          )}
+                        </span>
+                      )}
+                      {caracteristica.nombre}
+                    </Card.Title>
+                  </Card.Body>
+                </Card>
+              ))}
+            </div>
+          </Col>
         </Row>
         <Row>
           <Col>

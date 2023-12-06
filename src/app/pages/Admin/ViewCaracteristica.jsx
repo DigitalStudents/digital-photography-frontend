@@ -54,7 +54,7 @@ const ViewCaracteristica= () => {
   };
 
   return (
-    <div className="card-container">
+    <div className="card-container" style={{ maxWidth: "150vh",height: "100vh",marginBottom:"6%" }}>
       <Table striped bordered hover>
         <thead>
           <tr>

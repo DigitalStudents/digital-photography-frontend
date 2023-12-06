@@ -25,6 +25,7 @@ function Header() {
       data-bs-theme="dark"
       fixed="top"
       className="bg-body-tertiary custom-navbar"
+      style={{ backgroundColor: '#0aa8bd' }}
     >
       <Container>
         <Navbar className="logo" href="#home">
