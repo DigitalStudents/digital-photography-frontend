@@ -17,7 +17,12 @@ function Header() {
   const isAuth =
     sessionStorage.getItem("token") && sessionStorage.getItem("username");
 
-  const username = sessionStorage.getItem("username");
+  
+  const firstName = sessionStorage.getItem("firstName");
+  const lastName = sessionStorage.getItem("lastName");
+  const initials = firstName[0] + lastName[0];
+  console.log(initials);
+
   return (
     <Navbar
       bg="dark"
@@ -62,7 +67,7 @@ function Header() {
               isAdmin === "ADMIN" ? (
                 <AdminButton username={username} />
               ) : (
-                <UserButton username={username} />
+                <UserButton username={initials} />
               )
               
             ) : (

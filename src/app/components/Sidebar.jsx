@@ -24,6 +24,7 @@ const UserOptions = [
 const Sidebar = ({name}) => {
   const isAdmin = sessionStorage.getItem("role");
   const navigate = useNavigate();
+  
 
   return (
     <nav className="sidebar-container">
