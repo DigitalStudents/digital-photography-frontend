@@ -8,7 +8,6 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-   const [isLoggedIn, setIsLoggedIn] = useState(true); 
   const itemsPerPage = 10; // Asumiendo 10 productos por página
 
   useEffect(() => {
@@ -49,7 +48,6 @@ const ProductList = () => {
             descripcion={product.descripcion}
             precio_por_dia={product.precio}
             imagen={product.imagenes[1]}
-            isLoggedIn={isLoggedIn}
           />
         ))}
       </div>
