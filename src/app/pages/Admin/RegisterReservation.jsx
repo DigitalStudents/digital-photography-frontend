@@ -133,7 +133,7 @@ const RegisterCategory = () => {
     }, [reservationForm]);
 
     return (
-        <section className="card-container">
+        <section className="card-container" style={{ maxWidth: "150vh",height: "100vh",marginBottom:"6%" }}>
             <h2>Registra tú Reservation</h2>
             <form onSubmit={(e) => handleSubmitForm(e, reservationForm)}>
 

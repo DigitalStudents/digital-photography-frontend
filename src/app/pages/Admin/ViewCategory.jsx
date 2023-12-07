@@ -54,7 +54,7 @@ const ViewCategory = () => {
   };
 
   return (
-    <div className="card-container">
+    <div className="card-container" style={{ maxWidth: "150vh",height: "120vh",marginBottom:"6%" }}>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -73,6 +73,7 @@ const ViewCategory = () => {
                 <Button
                   variant="danger"
                   onClick={() => handleDeleteCategory(category.id)}
+                  style={{ marginTop: "4px", marginLeft: "24%", color: "white" }}
                 >
                   Eliminar
                 </Button>

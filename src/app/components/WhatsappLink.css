@@ -1,0 +1,12 @@
+.whatsapp-link {
+    background-color: #24ec6d; 
+    border-radius: 60%; 
+    padding: 5%; 
+    display: flex;
+    justify-content: flex-end;
+    transition: background-color 0.3s ease;
+  }
+  
+  .whatsapp-link:hover {
+    background-color: #128c7e; 
+  }

@@ -34,10 +34,10 @@
     }
   }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1300px) {
     .product-list {
-      grid-template-columns: repeat(3, 1fr); 
-      margin-left: 10%;
+      grid-template-columns: repeat(5, 1fr); 
+      margin-left: 4.5%;
     }
   }
   
