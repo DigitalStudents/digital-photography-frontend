@@ -26,7 +26,8 @@ const Sidebar = ({name}) => {
   const navigate = useNavigate();
 
   return (
-    <nav className="sidebar-container">
+    <nav className="sidebar-container" style={{ height:"100vh" }}>
+
       <h4 className="sidebar-title">Hola, {name}</h4>
       <hr />
       <ul className="sidebar-box">

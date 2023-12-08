@@ -62,8 +62,6 @@ export default function ProductBox({
   };
   
 
-
-
   return (
     
     <Link className="link" to={`/product/${id}`}>
