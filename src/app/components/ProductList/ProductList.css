@@ -10,6 +10,22 @@
     margin-right: auto;  
     padding-top: 50px;
 }
+
+.product-list .card {
+  width: 12.7rem;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.product-list .card:hover {
+  transform: scale(1.05);
+}
+
+.product-list .card-img-top {
+  max-height: 12rem; 
+  object-fit: cover;
+}
+
 .pagination-info {
     display: block;
     line-height: 30px;
@@ -26,6 +42,10 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+  }
+
+  .card{
+    width: 20rem;
   }
   @media screen and (max-width: 900px) {
     .product-list {

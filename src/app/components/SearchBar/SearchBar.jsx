@@ -51,12 +51,15 @@ export const SearchBar = ({ setResults }) => {
 
 
   return (
-    <div className="input-wrapper">
+    <div className="input-wrapper d-flex justify-content-center align-items-center">
       <FaSearch id="search-icon" />
       <input
-        placeholder="Type to search..."
+        type="text"
+        className="custom-input" 
+        placeholder="Buscar Productos"
         value={input}
         onChange={(e) => handleChange(e.target.value)}
+        style={{ width: "300px" }}
       />
     </div>
   );
