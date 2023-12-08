@@ -16,6 +16,7 @@ import PageLayout from "../layouts/PageLayout";
 import UserLayout from "../layouts/UserLayout";
 import FavsProducts from "../pages/User/FavsProducts";
 import UserProfile from "../pages/User/UserProfile";
+import UserReservations from "../pages/User/UserReservations";
 
 const PrivateRoutes = () => {
   const isAdmin = "ADMIN" === sessionStorage.getItem("role");
@@ -50,6 +51,7 @@ const PrivateRoutes = () => {
           <Route path="/user" element={<UserLayout />}>
             <Route path="/user/profile" element={<UserProfile />} />
             <Route path="/user/favorites" element={<FavsProducts />} />
+            <Route path="/user/reservations" element={<UserReservations/>} />
           </Route>
         )}
       </Route>

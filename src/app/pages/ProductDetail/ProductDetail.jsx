@@ -11,6 +11,7 @@ import { VscScreenFull } from "react-icons/vsc";
 import { CgScreenShot } from "react-icons/cg";
 import "./ProductDetail.css";
 import DatePickerForm from "../../components/DatePickerBookings/DatePicker";
+import { Link } from 'react-router-dom';
 
 export default function ProductDetail() {
   const { productId } = useParams();
@@ -32,6 +33,7 @@ export default function ProductDetail() {
     "3.2'' LCD Screen Size": CgScreenShot,
     "3.0'' LCD Screen Size": CgScreenShot,
   };
+
 
   if (!producto) {
     return <h4>Loading...</h4>;
@@ -62,9 +64,12 @@ export default function ProductDetail() {
                   Precio por día: $ {producto.precio}
                 </h3>
                 <div className="buttons-container">
-                  <Button variant="success" className="me-1">
-                    Alquilar Ahora
-                  </Button>
+                  <Link to={`/product/${productId}/reservationDetail`}>
+                    <Button variant="success" className="me-1">
+                      Alquilar Ahora
+                    </Button>
+                  </Link>
+
                   <Button variant="primary">Añadir al carrito</Button>
                   <Share title={producto.nombre} />
                 </div>

@@ -10,6 +10,7 @@ const DatePickerForm = ({ productId }) => {
 
   const reservationEndpoint = `${import.meta.env.VITE_BACKEND_URL}reservations`;
 
+
   const handleStartDateChange = (date) => {
     setStartDate(date);
   };

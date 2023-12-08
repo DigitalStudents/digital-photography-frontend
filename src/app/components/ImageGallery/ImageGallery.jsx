@@ -5,7 +5,7 @@ import './ImageGallery.css'
 
 
 const ImageGallery = ({ productImages, id }) => {
-    const [mainImage, setMainImage] = useState(productImages[1]);
+    const [mainImage, setMainImage] = useState(productImages[0]);
 
     return (
         <div>
