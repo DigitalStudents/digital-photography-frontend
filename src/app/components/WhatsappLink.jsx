@@ -9,10 +9,10 @@ const WhatsappLink = () => {
 
   return (
     <a
-      href={whatsappLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{  float: 'right' }}
+    href={whatsappLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="whatsapp-link"
     >
       <FaWhatsapp size={60} />
     </a>
