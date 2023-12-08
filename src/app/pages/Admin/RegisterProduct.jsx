@@ -350,7 +350,6 @@ const RegisterProduct = () => {
         />
         <button
           type="submit"
-          style={{ marginTop: "40px" }}
           className="btn btn-primary btn-lg"
           disabled={!enableSubmit}
           style={{ marginTop: "40px", marginLeft: "40%", backgroundColor: "#0aa8bd", color: "white" }}
