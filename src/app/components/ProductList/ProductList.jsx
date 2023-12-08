@@ -47,7 +47,7 @@ const ProductList = () => {
             id={product.id}
             descripcion={product.descripcion}
             precio_por_dia={product.precio}
-            imagen={product.imagenes[1]}
+            imagen={product.imagenes[0]}
           />
         ))}
       </div>
