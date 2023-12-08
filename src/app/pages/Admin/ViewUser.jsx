@@ -24,6 +24,7 @@ const ViewUser= () => {
     fetchData();
   }, []);
 
+  //arreglar ENDPOINT
   const handleDeleteUser= (id) => {
     Swal.fire({
       title: "¿Estás seguro que quieres eliminar este user?",
@@ -55,7 +56,7 @@ const ViewUser= () => {
   };
 
   return (
-    <div className="card-container" style={{ maxWidth: "150vh",height: "110vh",marginBottom:"6%" }}>
+    <div className="card-container">
       <Table striped bordered hover>
         <thead>
           <tr>
