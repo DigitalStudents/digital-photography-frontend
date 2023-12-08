@@ -27,3 +27,6 @@
     color: royalblue;
   }
 
+  .input-wrapper .custom-input:hover {
+    background-color: #fff !important;
+  }

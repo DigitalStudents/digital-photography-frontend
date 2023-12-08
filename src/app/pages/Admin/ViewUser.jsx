@@ -69,7 +69,7 @@ const ViewUser= () => {
             <tr key={user.id}>
               <td>{user.id}</td>
               <td>{user.firstName}</td>
-              <td>{user.username}</td>
+              <td>{user.descripcion}</td>
               <td>
                 <Button
                   variant="danger"

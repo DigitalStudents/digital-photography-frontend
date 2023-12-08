@@ -58,7 +58,7 @@ export default function ProductDetail() {
               <Card.Body>
                 <Card.Title>{producto.nombre}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  Categoria: {producto.categorias.nombre}
+                 Categorias: {producto.categorias.map(categoria => categoria.nombre).join(", ")}
                 </Card.Subtitle>
                 <h3 className="product-price">
                   Precio por día: $ {producto.precio}
