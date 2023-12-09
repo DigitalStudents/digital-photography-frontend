@@ -68,7 +68,7 @@ const RegisterUser = () => {
     }, [userForm]);
 
     return (
-        <section className="card-container" style={{ maxWidth: "150vh",height: "100vh",marginBottom:"6%" }}>
+        <section className="card-container" style={{ maxWidth: "150vh",height: "auto",marginBottom:"6%" }}>
             <h2>Registrar Usuario</h2>
             <form onSubmit={(e) => handleSubmitForm(e, userForm)}>
                 <label>Nombre: </label>

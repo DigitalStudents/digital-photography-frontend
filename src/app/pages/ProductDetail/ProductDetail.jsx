@@ -54,7 +54,7 @@ export default function ProductDetail() {
             </Card>
           </Col>
           <Col md={4} style={{ marginTop: '3.2%' }} className="side-content">
-            <Card>
+            <Card style={{ width: "auto" }}>
               <Card.Body>
                 <Card.Title>{producto.nombre}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
@@ -63,19 +63,19 @@ export default function ProductDetail() {
                 <h3 className="product-price">
                   Precio por día: $ {producto.precio}
                 </h3>
-                <div className="buttons-container">
+                <div className="buttons-container" style={{ gap: 10}}>
                   <Link to={`/product/${productId}/reservationDetail`}>
-                    <Button variant="success" className="me-1">
+                    <Button variant="success" className="me-1" style={{ marginRight: "5px"}}>
                       Alquilar Ahora
                     </Button>
                   </Link>
 
-                  <Button variant="primary">Añadir al carrito</Button>
+                  <Button variant="primary" style={{ marginRight: "5px"}}>Añadir al carrito</Button>
                   <Share title={producto.nombre} />
                 </div>
               </Card.Body>
             </Card>
-            <Card>
+            <Card style={{ width: "37.3vh"}}>
               <Card.Body>
                 <DatePickerForm productId={productId}/>
               </Card.Body>

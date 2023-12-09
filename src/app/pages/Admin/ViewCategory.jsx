@@ -54,7 +54,7 @@ const ViewCategory = () => {
   };
 
   return (
-    <div className="card-container" style={{ maxWidth: "150vh",height: "120vh",marginBottom:"6%" }}>
+    <div className="card-container" style={{ maxWidth: "150vh",height: "auto",marginBottom:"6%" }}>
       <Table striped bordered hover>
         <thead>
           <tr>

@@ -3,13 +3,17 @@ import DatePicker from "react-datepicker";
 import Swal from "sweetalert2";
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
+import { registerLocale } from "react-datepicker";
+import es from 'date-fns/locale/es';
+import "./DatePicker.css";
+
+registerLocale('es', es);
 
 const DatePickerForm = ({ productId }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
   const reservationEndpoint = `${import.meta.env.VITE_BACKEND_URL}reservations`;
-
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
@@ -24,7 +28,7 @@ const DatePickerForm = ({ productId }) => {
     if (startDate && endDate) {
       const formattedStartDate = startDate.toISOString().split('T')[0];
       const formattedEndDate = endDate.toISOString().split('T')[0];
-      
+
       const reservationForm = {
         productId: productId,
         startDate: formattedStartDate,
@@ -61,18 +65,17 @@ const DatePickerForm = ({ productId }) => {
     } else {
       alert("Por favor selecciona ambas fechas");
     }
-  }
-
-
+  };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="datepicker">
       <div>
         <label>Fecha de Inicio: </label>
         <DatePicker
           selected={startDate}
           onChange={handleStartDateChange}
           dateFormat="yyyy-MM-dd"
+          locale="es"
         />
       </div>
       <div>
@@ -81,6 +84,7 @@ const DatePickerForm = ({ productId }) => {
           selected={endDate}
           onChange={handleEndDateChange}
           dateFormat="yyyy-MM-dd"
+          locale="es"
         />
       </div>
       <button type="submit">Enviar</button>

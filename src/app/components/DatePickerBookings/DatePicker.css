@@ -1,0 +1,54 @@
+.datepicker {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+    border-radius: 8px;
+  }
+  
+  /* Style the datepicker container */
+  .datepicker div {
+    margin-bottom: 5px;
+  }
+  
+  /* Style the labels */
+  .datepicker label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .datepicker input {
+    font-weight: bolder;
+  }
+  
+  .datepicker .react-datepicker-wrapper,
+  .datepicker .react-datepicker__input-container {
+    width: 100%;
+  }
+  
+  .datepicker .react-datepicker__input-container input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .datepicker button {
+    background-color: #198754;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .datepicker button:hover {
+    background-color: #45a049;
+  }
+
+  .datepicker .react-datepicker__day {
+    font-weight: bold;
+  }
