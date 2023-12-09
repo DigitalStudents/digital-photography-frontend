@@ -11,7 +11,7 @@ const ViewUser= () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_USERS_URL}`
+          `${import.meta.env.VITE_BACKEND_USERS_URL}users`
         );
         const data = await response.json();
         const filteredUsers = data.filter((user) => !user.deleted);
@@ -24,6 +24,7 @@ const ViewUser= () => {
     fetchData();
   }, []);
 
+  //arreglar ENDPOINT
   const handleDeleteUser= (id) => {
     Swal.fire({
       title: "¿Estás seguro que quieres eliminar este user?",
@@ -55,20 +56,20 @@ const ViewUser= () => {
   };
 
   return (
-    <div className="card-container">
+    <div className="card-container" style={{ maxWidth: "150vh",height: "auto",marginBottom:"6%" }}>
       <Table striped bordered hover>
         <thead>
           <tr>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Descripcion</th>
+            <th>Email/Username</th>
           </tr>
         </thead>
         <tbody>
           {categories.map((user) => (
             <tr key={user.id}>
               <td>{user.id}</td>
-              <td>{user.nombre}</td>
+              <td>{user.firstName}</td>
               <td>{user.descripcion}</td>
               <td>
                 <Button

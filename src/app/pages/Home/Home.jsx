@@ -32,13 +32,17 @@ function Home() {
         <h1></h1>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            {categories.map((c)=><Nav.Link href={`/categoria/${c.nombre}`}>{c.nombre}</Nav.Link>)}
+          <Nav className="me-auto mx-auto mt-0"> 
+            {categories.map((c) => (
+              <Nav.Link key={c.nombre} href={`/categoria/${c.nombre}`} className="me-4 font-weight-bold">
+                {c.nombre}
+              </Nav.Link>
+            ))}
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-      <Hero heroImage={"/camera-hero-banner.webp"} tilte={"HOLA MUNDO DESDE AWS"} subtitle={"Lleva tus producciones a otro nivel con nuestra gran variedad de productos"} />
+      <Hero heroImage={"/camera-hero-banner.webp"} tilte={"RENTA TU CÁMARA IDEAL"} subtitle={"Lleva tus producciones a otro nivel con nuestra gran variedad de productos"} />
       
       <h1 className="title-container">Productos que pueden interesarte</h1>
 

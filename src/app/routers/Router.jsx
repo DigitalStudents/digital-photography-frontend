@@ -17,6 +17,11 @@ import RegisterReservation from "../pages/Admin/RegisterReservation";
 import ViewReservation from "../pages/Admin/ViewReservation";
 import RegisterUser from "../pages/Admin/RegisterUser";
 import ViewUser from "../pages/Admin/ViewUser";
+import UserLayout from "../layouts/UserLayout";
+import UserProfile from "../pages/User/UserProfile";
+import FavsProducts from "../pages/User/FavsProducts";
+import ReservationDetail from "../pages/ReservationDetail/ReservationDetail";
+import UserReservations from "../pages/User/UserReservations";
 //import Login from "../pages/login/Login";
 
 
@@ -41,6 +46,10 @@ export const Router = createBrowserRouter([
       {
         path: "/product/:productId",
         element: <ProductDetail />,
+      },
+      {
+        path:"/product/:productId/reservationDetail",
+        element: <ReservationDetail />
       },
       {
         path: "/categoria/:categoryId",
@@ -85,6 +94,25 @@ export const Router = createBrowserRouter([
           },
         ]
       },
+      {
+        path: "/user",
+        element: <UserLayout />,
+        children: [
+          {
+            path:'/user/profile',
+            element: <UserProfile />
+          },
+          {
+            path:'/user/favorites',
+            element: <FavsProducts />
+          },
+          {
+            path:'/user/reservations',
+            element: <UserReservations />
+          }
+        ]
+      },
+
     ],
   },
 ]);

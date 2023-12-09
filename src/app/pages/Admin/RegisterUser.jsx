@@ -4,7 +4,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import Dropdown from "react-bootstrap/Dropdown";
 
-const usersEndpoint = `http://localhost:8080/user/crud/register`;
+const usersEndpoint = `${import.meta.env.VITE_BACKEND_AUTH}/user/crud/register`;
 const initialuserForm = {
     "firstName": "Vanesa",
     "lastName": "Perez",
@@ -52,7 +52,7 @@ const RegisterUser = () => {
                 console.error(err);
                 Swal.fire(
                     "Error guardando user!",
-                    "Ya existe la categoría o intenta de nuevo",
+                    "Ya existe el usuario o intenta de nuevo",
                     "error"
                 );
             });
@@ -68,7 +68,7 @@ const RegisterUser = () => {
     }, [userForm]);
 
     return (
-        <section className="card-container">
+        <section className="card-container" style={{ maxWidth: "150vh",height: "auto",marginBottom:"6%" }}>
             <h2>Registrar Usuario</h2>
             <form onSubmit={(e) => handleSubmitForm(e, userForm)}>
                 <label>Nombre: </label>

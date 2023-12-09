@@ -89,7 +89,7 @@ const RegisterInventory = () => {
     }, [inventoryForm, selectedProduct]);
 
     return (
-        <section className="card-container">
+        <section className="card-container" style={{ maxWidth: "150vh",height: "auto",marginBottom:"6%" }}>
             <h2>Actualiza el Inventario</h2>
             <form onSubmit={handleSubmitForm}>
                 <label>Producto: </label>

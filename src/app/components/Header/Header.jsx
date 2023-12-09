@@ -3,6 +3,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import UserButton from "./ProfileUserButton/UserButton";
+import AdminButton from "./ProfileAdminButton/AdminButton";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { SearchBar } from "../SearchBar/SearchBar";
@@ -11,6 +13,19 @@ import { useState } from "react";
 
 function Header() {
   const [results, setResults] = useState([]);
+  const isAdmin = sessionStorage.getItem("role")
+  const isAuth =
+    sessionStorage.getItem("token") && sessionStorage.getItem("username");
+
+  
+  const firstName = sessionStorage.getItem("firstName");
+  const lastName = sessionStorage.getItem("lastName");
+  
+/*   if (firstName && lastName) {
+    const initials = firstName[0] + lastName[0];
+  } */
+  
+
   return (
     <Navbar
       bg="dark"
@@ -18,6 +33,7 @@ function Header() {
       data-bs-theme="dark"
       fixed="top"
       className="bg-body-tertiary custom-navbar"
+      style={{ backgroundColor: '#0aa8bd' }}
     >
       <Container>
         <Navbar className="logo" href="#home">
@@ -50,8 +66,23 @@ function Header() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="/login" style={{color: 'white'}}>Iniciar Sesion</Nav.Link>
-            <Nav.Link href="/register" style={{color: 'white'}}>Registrarse</Nav.Link>
+            {isAuth ? (
+              isAdmin === "ADMIN" ? (
+                <AdminButton username={firstName} />
+              ) : (
+                <UserButton username={firstName} />
+              )
+              
+            ) : (
+              <>
+                <Nav.Link href="/login" style={{ color: "white" }}>
+                  Iniciar Sesión
+                </Nav.Link>
+                <Nav.Link href="/register" style={{ color: "white" }}>
+                  Registrarse
+                </Nav.Link>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -65,7 +65,7 @@ const RegisterCaracteristica = () => {
   }, [caracteristicaForm]);
 
   return (
-    <section className="card-container">
+    <section className="card-container" style={{ maxWidth: "125vh",height: "auto",marginBottom:"6%" }}>
       <h2>Registra tú Caracteristica</h2>
       <form onSubmit={(e) => handleSubmitForm(e, caracteristicaForm)}>
         <label>Nombre caracteristica: </label>

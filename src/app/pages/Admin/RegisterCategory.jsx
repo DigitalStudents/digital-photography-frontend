@@ -65,7 +65,7 @@ const RegisterCategory = () => {
   }, [categoryForm]);
 
   return (
-    <section className="card-container">
+    <section className="card-container" style={{ maxWidth: "125vh",height: "auto",marginBottom:"6%" }}>
       <h2>Registra tú Categoria</h2>
       <form onSubmit={(e) => handleSubmitForm(e, categoryForm)}>
         <label>Nombre categoria: </label>

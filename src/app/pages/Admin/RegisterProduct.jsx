@@ -272,7 +272,7 @@ const RegisterProduct = () => {
   }, []);
 
   return (
-    <section className="card-container">
+    <section className="card-container" style={{ maxWidth: "125vh", height: "auto",marginBottom:"6%"}}>
       <h2>Registra tú producto</h2>
       <form onSubmit={(e) => handleSubmitForm(e, productForm)}>
         <label>Nombre producto: </label>
@@ -350,9 +350,10 @@ const RegisterProduct = () => {
         />
         <button
           type="submit"
-          style={{ marginTop: "40px" }}
           className="btn btn-primary btn-lg"
           disabled={!enableSubmit}
+          style={{ marginTop: "40px", marginLeft: "40%", backgroundColor: "#0aa8bd", color: "white" }}
+          
         >
           Guardar
         </button>

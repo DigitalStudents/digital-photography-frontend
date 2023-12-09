@@ -120,7 +120,7 @@ const ViewProduct = () => {
   };
 
   return (
-    <div className="card-container">
+    <div className="card-container"  style={{ maxWidth: "150vh",height: "auto",marginBottom:"6%" }}>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -139,10 +139,10 @@ const ViewProduct = () => {
               <td>{product.descripcion}</td>
               <td>{product.precio}</td>
               <td>
-                <Button onClick={() => handleSelectedProduct(product)}>
+                <Button style={{ width: '80px', marginBottom:"5px" }} onClick={() => handleSelectedProduct(product)}>
                   Editar
                 </Button>
-                <Button variant="danger" onClick={() => handleDeleteProduct(product.id)}>
+                <Button style={{ width: '80px' }} variant="danger" onClick={() => handleDeleteProduct(product.id)}>
                   Eliminar
                 </Button>
               </td>

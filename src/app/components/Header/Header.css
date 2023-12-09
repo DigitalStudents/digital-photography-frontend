@@ -1,9 +1,5 @@
 .custom-navbar{
     color: white;
-    padding-right: 20px;
-    padding-left: 20px;
-    display: flex;
-    justify-content: space-between;
 }
 
 .logo{
@@ -19,4 +15,9 @@
 .search-container{
     display: flex;
     align-items: center;
+    
+}
+.logo:hover{
+    color: rgb(204, 204, 204);
+    text-decoration: none;
 }

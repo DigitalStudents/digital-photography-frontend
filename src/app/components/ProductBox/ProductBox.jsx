@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -11,26 +11,62 @@ export default function ProductBox({
   imagen,
   tipo,
   descripcion,
-  precio_por_dia,
-  isLoggedIn, 
+  precio_por_dia
 }) {
   const [isFavorito, setIsFavorito] = useState(false);
+  const isAuth = sessionStorage.getItem('token');
 
-  const handleToggleFavorito = () => {
-    if (isLoggedIn) {
-      setIsFavorito(!isFavorito);
-      // agregar a favoritos en tu backend
+  useEffect(() => {
+    // Check localStorage to set initial state
+    const favoritosLocalStorage = JSON.parse(localStorage.getItem("favoritos")) || [];
+    if (favoritosLocalStorage.includes(id)) {
+      setIsFavorito(true);
+    }
+  }, [id]);
+  
+  const handleToggleFavorito = async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+  
+    if (isAuth) {
+      try {
+        const url = isFavorito
+          ? `${import.meta.env.VITE_BACKEND_USERS_URL}removerFavorito/${id}`
+          : `${import.meta.env.VITE_BACKEND_USERS_URL}agregarFavorito/${id}`;
+  
+        const response = await fetch(url, {
+          method: "POST",
+        });
+  
+        if (response.ok) {
+          // Update local state
+          setIsFavorito(!isFavorito);
+  
+          // Update localStorage
+          const favoritosLocalStorage = JSON.parse(localStorage.getItem("favoritos")) || [];
+          localStorage.setItem(
+            "favoritos",
+            isFavorito
+              ? JSON.stringify(favoritosLocalStorage.filter((favId) => favId !== id))
+              : JSON.stringify([...favoritosLocalStorage, id])
+          );
+        } else {
+          console.error("Error al realizar la solicitud al backend");
+        }
+      } catch (error) {
+        console.error("Error al realizar la solicitud al backend", error);
+      }
     } else {
       alert("Debe iniciar sesión para agregar a favoritos");
-    
     }
   };
+  
 
   return (
     
-    <Link className="link" to={`product/${id}`}>
+    <Link className="link" to={`/product/${id}`}>
       
-      <Card style={{ width: "12.5rem", height:"23rem", position: "relative" }}>
+      <Card style={{ width: "13rem", height:"23rem", position: "relative" }}>
         <Card.Img style={{ width: "12.5rem", height:"12rem" }} variant="top" src={imagen} />
         <Card.Body>
           <Card.Title className="title" >{nombre}</Card.Title>
@@ -48,8 +84,9 @@ export default function ProductBox({
             cursor: "pointer",
             borderRadius: "50%",
             backgroundColor: "white",
+            zIndex: "2"
           }}
-          onClick={handleToggleFavorito}
+          onMouseDown={handleToggleFavorito}
         >
           {isFavorito ? <FaHeart color="red" /> : <FaRegHeart />}
         </div>

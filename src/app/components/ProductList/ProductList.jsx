@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Pagination from 'react-bootstrap/Pagination';
 import ProductBox from "../ProductBox/ProductBox";
 import './ProductList.css';
+import WhatsappLink from "/src/app/components/WhatsappLink.jsx";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -46,7 +47,7 @@ const ProductList = () => {
             id={product.id}
             descripcion={product.descripcion}
             precio_por_dia={product.precio}
-            imagen={product.imagenes[1]}
+            imagen={product.imagenes[0]}
           />
         ))}
       </div>
@@ -59,6 +60,8 @@ const ProductList = () => {
           <Pagination.Next onClick={handleNextPage} disabled={currentPage === totalPages - 1} />
         </Pagination>
       </div>
+
+      <WhatsappLink/>
     </div>
   );
 };
