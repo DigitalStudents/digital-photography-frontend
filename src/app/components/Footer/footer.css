@@ -12,6 +12,15 @@ footer{
     box-sizing: border-box;
 }
 
+
+section.content{
+    align-items: center;
+}
+
+h1.contacto{
+    align-items: center;
+}
+
 .contacto{
     color:white;
     font-size:x-large;
@@ -20,12 +29,14 @@ footer{
 .imgfooter{
     display: flex;
     flex-direction: column;
-
-    
+    align-items: center;
+    display: block;
     }
+
 .logofooter{
-    margin-top: 8%;
+    margin-bottom: 8px;
 }
+
 .formato{
     background-color: #000;
 }
@@ -40,9 +51,12 @@ footer{
 .iconosfooter a {
     margin: 0 10%; 
   }
-.menufooter{display: flex;
+.menufooter{
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
+
 }
     
     .navfooter{padding: 20px;
@@ -51,6 +65,8 @@ footer{
     }
 
     .ul2{list-style: none;
+        align-items: center;
+        margin-bottom: 0px;
 
     }
 
