@@ -17,6 +17,10 @@
     font-weight: bold;
     margin-bottom: 5px;
   }
+
+  .datepicker input {
+    font-weight: bolder;
+  }
   
   .datepicker .react-datepicker-wrapper,
   .datepicker .react-datepicker__input-container {
@@ -43,4 +47,8 @@
   
   .datepicker button:hover {
     background-color: #45a049;
+  }
+
+  .datepicker .react-datepicker__day {
+    font-weight: bold;
   }
