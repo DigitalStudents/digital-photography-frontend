@@ -64,9 +64,10 @@ export default function ProductBox({
 
   return (
     
-    <Link className="link" to={`/product/${id}`}>
+    <Card style={{ width: "13rem", height:"23rem", position: "relative" }}>
+
+    <Link className="link" to={`/product/${id}`} style={{marginLeft: 0, display: "contents"}}>
       
-      <Card style={{ width: "13rem", height:"23rem", position: "relative" }}>
         <Card.Img style={{ width: "12.5rem", height:"12rem" }} variant="top" src={imagen} />
         <Card.Body>
           <Card.Title className="title" >{nombre}</Card.Title>
@@ -75,22 +76,26 @@ export default function ProductBox({
             <Button variant="primary" >Ver más</Button>
           </div>
         </Card.Body>
+
+        </Link>
+
         <div
-          style={{
-            position: "absolute",
-            top: 0,
-            right: 0,
-            padding: "8px",
-            cursor: "pointer",
-            borderRadius: "50%",
-            backgroundColor: "white",
-            zIndex: "2"
-          }}
+        className="heart-icon-container"
+        style={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          padding: "8px",
+          borderRadius: "50%",
+          backgroundColor: "white",
+          zIndex: "2"
+        }}
           onMouseDown={handleToggleFavorito}
         >
           {isFavorito ? <FaHeart color="red" /> : <FaRegHeart />}
         </div>
       </Card>
-    </Link>
+
+    
   );
 }
