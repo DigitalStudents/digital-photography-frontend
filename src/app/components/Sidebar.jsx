@@ -27,7 +27,7 @@ const Sidebar = ({name}) => {
   
 
   return (
-    <nav className="sidebar-container" style={{ height:"100vh" }}>
+    <nav className="sidebar-container" style={{ height:"auto", paddingBottom:50 }}>
 
       <h4 className="sidebar-title">Hola, {name}</h4>
       <hr />
