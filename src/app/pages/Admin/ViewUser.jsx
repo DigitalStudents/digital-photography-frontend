@@ -24,6 +24,7 @@ const ViewUser= () => {
     fetchData();
   }, []);
 
+  //arreglar ENDPOINT
   const handleDeleteUser= (id) => {
     Swal.fire({
       title: "¿Estás seguro que quieres eliminar este user?",

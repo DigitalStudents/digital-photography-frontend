@@ -9,6 +9,8 @@ import UserLayout from "../layouts/UserLayout";
 import FavsProducts from "../pages/User/FavsProducts";
 import UserProfile from "../pages/User/UserProfile";
 import { NotAdminAuthenticated } from "./PrivateRouter";
+import ReservationDetail from "../pages/ReservationDetail/ReservationDetail";
+import UserReservations from "../pages/User/UserReservations";
 
 const PublicRouter = () => {
   const isAuth =
@@ -21,10 +23,12 @@ const PublicRouter = () => {
         <Route path="/user" element={<UserLayout />}>
           <Route path="/user/profile" element={<UserProfile />} />
           <Route path="/user/favorites" element={<FavsProducts />} />
+          <Route path="/user/reservations" element={<UserReservations/>} />
         </Route>
 
         <Route path="/home" element={<Home />} />
         <Route path="/product/:productId" element={<ProductDetail />} />
+        <Route path="/product/:productId/reservationDetail" element={<ReservationDetail/>} />
         <Route path="/categoria/:categoryId" element={<CategoryPage />} />
       </Route>
 
