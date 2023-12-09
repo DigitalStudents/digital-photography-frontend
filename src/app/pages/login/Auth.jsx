@@ -66,7 +66,7 @@ const Login = () => {
         sessionStorage.setItem("role", tokenDecode['role']);
         sessionStorage.setItem("userId", tokenDecode['userId']);
         sessionStorage.setItem("firstName", tokenDecode['firstName']);
-        sessionStorage.setItem("lastName", tokenDecode['lastName']);
+        sessionStorage.setItem("lastName", tokenDecode['LastName']);
         navigate("/home")
       })
       .catch((err) => {

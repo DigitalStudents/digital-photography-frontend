@@ -11,6 +11,7 @@ const layoutClass = {
 const UserLayout = () => {
   const [user, setUser] = useState({}); // Inicializamos user como un objeto vacío
   const idUser = sessionStorage.getItem('userId');
+  const name = sessionStorage.getItem('firstName')
 
   useEffect(() => {
     const fetchData = async (id) => {
@@ -38,7 +39,7 @@ const UserLayout = () => {
     <Fragment>
       <section style={layoutClass}>
         <div style={{ height: "100%" }}>
-          <Sidebar name={user.firstName} /> {/* Asegúrate de que user tenga la propiedad firstName */}
+          <Sidebar name={name} /> {/* Asegúrate de que user tenga la propiedad firstName */}
         </div>
         <div>
           <Outlet />
