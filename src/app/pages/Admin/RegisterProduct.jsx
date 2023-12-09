@@ -272,7 +272,7 @@ const RegisterProduct = () => {
   }, []);
 
   return (
-    <section className="card-container" style={{ maxWidth: "80%",height: "115vh",marginBottom:"6%" }}>
+    <section className="card-container" style={{ maxWidth: "125vh", height: "auto",marginBottom:"6%"}}>
       <h2>Registra tú producto</h2>
       <form onSubmit={(e) => handleSubmitForm(e, productForm)}>
         <label>Nombre producto: </label>
