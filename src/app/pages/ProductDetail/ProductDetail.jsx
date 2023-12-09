@@ -75,7 +75,7 @@ export default function ProductDetail() {
                 </div>
               </Card.Body>
             </Card>
-            <Card>
+            <Card style={{ width: "37.3vh"}}>
               <Card.Body>
                 <DatePickerForm productId={productId}/>
               </Card.Body>
