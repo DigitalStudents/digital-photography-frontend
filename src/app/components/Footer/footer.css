@@ -78,7 +78,7 @@ h1.contacto{
     .linkfooter:hover{
         color: rgb(209, 202, 202);
         text-decoration: none;
-        
+        cursor: pointer;
     }
     .lifooter{
         font-family: 'Be Vietnam Pro', sans-serif; 
