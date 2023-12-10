@@ -41,7 +41,7 @@ function Home() {
         </Navbar.Collapse>
       </Navbar>
 
-      <Hero heroImage={"src/assets/images/camera-hero-banner.webp"} tilte={"RENTA TU CÁMARA IDEAL"} subtitle={"Lleva tus producciones a otro nivel con nuestra gran variedad de productos"} />
+      <Hero heroImage={'/src/assets/images/camera-hero-banner.webp'} tilte={"RENTA TU CÁMARA IDEAL"} subtitle={"Lleva tus producciones a otro nivel con nuestra gran variedad de productos"} />
       
       <h1 className="title-container">Productos que pueden interesarte</h1>
 
