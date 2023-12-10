@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { SearchResultsList } from "../SearchBar/SearchResultList";
 import { useState } from "react";
-import logoImage from '/src/assets/images/logo.PNG';
+import logoImage from '/src/assets/images/logo.png';
 
 function Header() {
   const [results, setResults] = useState([]);
