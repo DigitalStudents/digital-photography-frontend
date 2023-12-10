@@ -2,7 +2,7 @@
     color: white;
 }
 
-.logo{
+.headerlogo{
     color: white;
     font-size: x-large;
     text-decoration: none;
@@ -17,7 +17,7 @@
     align-items: center;
     
 }
-.logo:hover{
+.headerlogo:hover{
     color: rgb(204, 204, 204);
     text-decoration: none;
 }

@@ -37,9 +37,11 @@ function Header() {
       style={{ backgroundColor: '#0aa8bd' }}
     >
       <Container>
-        <Navbar className="logo" href="#home">
-          <img src={logoImage} width={55} height={30} alt="" />
-          <Link to="/" className="logo">
+
+      <img src={logoImage} width={55} height={30} alt="headerLogo" />
+
+        <Navbar className="headerlogo" href="#home">
+          <Link to="/" className="headerlogo">
             FilmBook
           </Link>
         </Navbar>
