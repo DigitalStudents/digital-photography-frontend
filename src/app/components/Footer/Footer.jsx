@@ -44,7 +44,7 @@ const Footer = () => {
       <section className="content">
         <div className="imgfooter">
           <div className="logofooter">
-            <img src={footerLogo} alt="Logo" />
+            <img src={footerLogo} alt="LogoFooter" />
           </div>
           <h1 className="contacto">contacto@filmbook.com</h1>
 
