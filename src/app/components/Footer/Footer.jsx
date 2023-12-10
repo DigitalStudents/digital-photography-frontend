@@ -5,7 +5,7 @@ import './footer.css';
 import facebookLogo from '/src/assets/images/icon-facebook.svg'
 import twitterLogo from '/src/assets/images/icon-twitter.svg'
 import instagramLogo from '/src/assets/images/icon-instagram.svg'
-import footerLogo from '/src/assets/images/footerLogo.jpeg'
+import footerLogo from '/src/assets/images/footerlogo.jpeg'
 
 const Footer = () => {
 
