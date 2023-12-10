@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { SearchResultsList } from "../SearchBar/SearchResultList";
 import { useState } from "react";
+import logoImage from '/src/assets/images/logo.PNG';
 
 function Header() {
   const [results, setResults] = useState([]);
@@ -37,7 +38,7 @@ function Header() {
     >
       <Container>
         <Navbar className="logo" href="#home">
-          <img src="..\src\assets\images\logo.PNG" width={55} height={30} alt="" />
+          <img src={logoImage} width={55} height={30} alt="" />
           <Link to="/" className="logo">
             FilmBook
           </Link>
