@@ -68,13 +68,10 @@ export default function ProductBox({
 
     <Link className="link" to={`/product/${id}`} style={{marginLeft: 0, display: "contents"}}>
       
-        <Card.Img style={{ width: "12.5rem", height:"12rem" }} variant="top" src={imagen} />
-        <Card.Body style={{ color: "black", height:"auto", flex: 1}}>
+        <Card.Img style={{ width: "auto", height:"12rem" }} variant="top" src={imagen} />
+        <Card.Body style={{ color: "black"}}>
           <Card.Title className="title">{nombre}</Card.Title>
           <Card.Text className="text" style={{fontWeight:500}} >Precio por día: $ {precio_por_dia}</Card.Text>
-          <div className="center-button">
-            <Button variant="primary" >Ver más</Button>
-          </div>
         </Card.Body>
 
         </Link>
@@ -82,11 +79,13 @@ export default function ProductBox({
         <div
         className="heart-icon-container"
         style={{
+          display: "flex",
           position: "absolute",
-          top: 0,
-          right: 0,
-          padding: "8px",
-          borderRadius: "50%",
+          height: "5px",
+          top: 5,
+          right: 10,
+          paddingBottom: 16,
+          borderRadius: "100%",
           backgroundColor: "white",
           zIndex: "2"
         }}

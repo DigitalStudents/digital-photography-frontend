@@ -37,7 +37,7 @@ function Header() {
     >
       <Container>
         <Navbar className="logo" href="#home">
-          <img src="../../public/logo.PNG" width={55} height={30} alt="" />
+          <img src="..\src\assets\images\logo.PNG" width={55} height={30} alt="" />
           <Link to="/" className="logo">
             FilmBook
           </Link>
