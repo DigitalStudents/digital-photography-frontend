@@ -13,9 +13,11 @@ import "./ProductDetail.css";
 import DatePickerForm from "../../components/DatePickerBookings/DatePicker";
 import { Link } from 'react-router-dom';
 
+
 export default function ProductDetail() {
   const { productId } = useParams();
   const [producto, setProducto] = useState(null);
+  const [ratings, setRatings] = useState([]);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}productos/${productId}`)
@@ -24,7 +26,14 @@ export default function ProductDetail() {
         console.log(r);
         setProducto(r);
       });
-  }, []);
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}productos/${productId}/ratings`)
+      .then((r) => r.json())
+      .then((r) => {
+        console.log(r);
+        setRatings(r);
+      });
+  }, [productId]);
 
   const iconosCaracteristicas = {
     "Wi-Fi Compatibility": FaWifi,
@@ -104,16 +113,37 @@ export default function ProductDetail() {
             </div>
           </Col>
         </Row>
+
         <Row>
+
           <Col>
+
             <Card className="description-container">
               <Card.Body>
                 <Card.Title>Descripcion</Card.Title>
                 <Card.Text>{producto.descripcion}</Card.Text>
               </Card.Body>
             </Card>
+
+            <Col className="ratings-container mx-auto">
+  <Card.Body>
+    <Card.Title className="text-center">Reseña de otros usuarios</Card.Title>
+    <ul className="text-center">
+      {ratings.map((rating) => (
+        <li className="ratingCard" key={rating.id}>
+          <strong>{rating.userName}</strong> - {rating.rating} stars
+          <p className="fecha">{rating.date}</p>
+          <p>{rating.comment}</p>
+        </li>
+      ))}
+    </ul>
+  </Card.Body>
+</Col>
+
           </Col>
+
         </Row>
+        
       </Container>
     );
   }

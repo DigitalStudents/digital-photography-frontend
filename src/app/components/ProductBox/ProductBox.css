@@ -1,5 +1,5 @@
 
-.card-body {
+ .ProductCard {
     display: flex;
     flex-direction: column;
     align-items: center;
