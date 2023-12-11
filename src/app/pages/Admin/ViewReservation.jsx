@@ -54,7 +54,7 @@ const ViewReservation= () => {
   };
 
   return (
-    <div className="card-container" style={{ maxWidth: "150vh",height: "auto",marginBottom:"6%" }}>
+    <div className="card-container" >
       <Table striped bordered hover>
         <thead>
           <tr>

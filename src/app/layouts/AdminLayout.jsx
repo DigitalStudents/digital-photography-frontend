@@ -17,7 +17,7 @@ const AdminLayout = () => {
           <div style={{ height: "100%" }}>
             <Sidebar />
           </div>
-          <div>
+          <div style={{height:"100vh"}}>
             <Outlet />
           </div>
         </section>

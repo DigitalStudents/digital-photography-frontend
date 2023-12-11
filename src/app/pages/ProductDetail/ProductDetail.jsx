@@ -1,4 +1,3 @@
-
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
@@ -11,9 +10,9 @@ import { VscScreenFull } from "react-icons/vsc";
 import { CgScreenShot } from "react-icons/cg";
 import "./ProductDetail.css";
 import DatePickerForm from "../../components/DatePickerBookings/DatePicker";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import RatingStars from "./RatingStars";
-
+import { useSessionStorage } from "usehooks-ts";
 
 export default function ProductDetail() {
   const { productId } = useParams();
@@ -44,6 +43,8 @@ export default function ProductDetail() {
     "3.0'' LCD Screen Size": CgScreenShot,
   };
 
+  const isAuth =
+    sessionStorage.getItem("token") && sessionStorage.getItem("username");
 
   if (!producto) {
     return <h4>Loading...</h4>;
@@ -63,33 +64,51 @@ export default function ProductDetail() {
               )}
             </Card>
           </Col>
-          <Col md={4} style={{ marginTop: '3.2%' }} className="side-content">
+          <Col md={4} style={{ marginTop: "3.2%" }} className="side-content">
             <Card style={{ width: "auto" }}>
               <Card.Body>
                 <Card.Title>{producto.nombre}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                 Categorias: {producto.categorias.map(categoria => categoria.nombre).join(", ")}
+                  Categorias:{" "}
+                  {producto.categorias
+                    .map((categoria) => categoria.nombre)
+                    .join(", ")}
                 </Card.Subtitle>
                 <h3 className="product-price">
                   Precio por día: $ {producto.precio}
                 </h3>
-                <div className="buttons-container" style={{ gap: 10}}>
-                  <Link to={`/product/${productId}/reservationDetail`}>
-                    <Button variant="success" className="me-1" style={{ marginRight: "5px"}}>
-                      Alquilar Ahora
-                    </Button>
-                  </Link>
+                <div className="buttons-container" style={{ gap: 10 }}>
+                  {isAuth ? (
+                    <Link to={`/product/${productId}/reservationDetail`}>
+                      <Button
+                        variant="success"
+                        className="me-1"
+                        style={{ marginRight: "5px" }}
+                      >
+                        Alquilar Ahora
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Link to={"/login"}>
+                      <Button
+                        variant="success"
+                        className="me-1"
+                        style={{ marginRight: "5px" }}
+                      >
+                        Inicia Sesión
+                      </Button>
+                    </Link>
+                  )}
 
-                  <Button variant="primary" style={{ marginRight: "5px"}}>Añadir al carrito</Button>
                   <Share title={producto.nombre} />
                 </div>
               </Card.Body>
             </Card>
-            <Card style={{ width: "37.3vh"}}>
+            <Card style={{ maxWidth: "37.3vh", textAlign:"center" }}>
               <Card.Body>
-                <DatePickerForm productId={productId}/>
+                <DatePickerForm productId={productId} />
               </Card.Body>
-            </Card> 
+            </Card>
           </Col>
         </Row>
         <Row>
@@ -116,9 +135,7 @@ export default function ProductDetail() {
         </Row>
 
         <Row>
-
           <Col>
-
             <Card className="description-container">
               <Card.Body>
                 <Card.Title>Descripcion</Card.Title>
@@ -128,11 +145,14 @@ export default function ProductDetail() {
 
             <Col className="ratings-container mx-auto">
               <Card.Body>
-                <Card.Title className="text-center">Reseña de otros usuarios</Card.Title>
+                <Card.Title className="text-center">
+                  Reseña de otros usuarios
+                </Card.Title>
                 <ul className="text-center">
                   {ratings.map((rating) => (
                     <li className="ratingCard" key={rating.id}>
-                      <strong>{rating.userName}</strong> - <RatingStars rating={rating.rating} />
+                      <strong>{rating.userName}</strong> -{" "}
+                      <RatingStars rating={rating.rating} />
                       <p className="fecha">{rating.date}</p>
                       <p>{rating.comment}</p>
                     </li>
@@ -140,11 +160,8 @@ export default function ProductDetail() {
                 </ul>
               </Card.Body>
             </Col>
-
           </Col>
-
         </Row>
-        
       </Container>
     );
   }

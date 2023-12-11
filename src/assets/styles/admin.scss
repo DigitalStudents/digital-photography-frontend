@@ -2,9 +2,10 @@
     @extend .card-generic;
     margin: 50px auto;
     width: 90%;
-    height: 70%;
+    max-height: 70%;
     padding: 20px;
     border-radius: 10px;
+    overflow-y: auto;
 }
 .form-control:focus {
     border-color:  $eastern-blue-700;

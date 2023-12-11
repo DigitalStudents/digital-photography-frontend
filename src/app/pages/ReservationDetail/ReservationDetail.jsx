@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import Swal from "sweetalert2";
 import "react-datepicker/dist/react-datepicker.css";
-import { format, differenceInDays } from "date-fns";
+import { format, differenceInDays, addDays, parse } from "date-fns";
 import { registerLocale } from "react-datepicker";
 import es from "date-fns/locale/es";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -25,8 +25,12 @@ const ReservationDetail = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [product, setProduct] = useState({});
+  const [reservations, setReservations] = useState([]);
 
   const reservationEndpoint = `${import.meta.env.VITE_BACKEND_URL}reservations`;
+
+  const isAuth =
+  sessionStorage.getItem("token") && sessionStorage.getItem("username");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,6 +43,30 @@ const ReservationDetail = () => {
 
         if (data) {
           setProduct(data);
+        } else {
+          console.error(
+            "La respuesta de la solicitud no contiene 'nombre' esperado"
+          );
+        }
+      } catch (error) {
+        console.error("Error en la solicitud fetch:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}reservations/product/${productId}`
+        );
+        const data = await response.json();
+        console.log(data); // Verifica la respuesta en la consola
+
+        if (data) {
+          setReservations(data);
         } else {
           console.error(
             "La respuesta de la solicitud no contiene 'nombre' esperado"
@@ -112,6 +140,28 @@ const ReservationDetail = () => {
     return 0; // Valor predeterminado si no hay fechas seleccionadas
   };
 
+  // Función para generar un array de intervalos de fechas a excluir
+  const generateExcludedIntervals = () => {
+    const excludedIntervals = reservations.map((reservation) => {
+      const formattedStartDate = reservation.startDate.substring(0, 10); // Obtener solo YYYY-MM-DD
+      const formattedEndDate = reservation.endDate.substring(0, 10); // Obtener solo YYYY-MM-DD
+  
+      // Convertir las cadenas de fecha en objetos de fecha
+      const parsedStartDate = parse(formattedStartDate, 'yyyy-MM-dd', new Date());
+      const parsedEndDate = parse(formattedEndDate, 'yyyy-MM-dd', new Date());
+  
+      // Agregar un día a la fecha de fin
+      const endDatePlusOneDay = addDays(parsedEndDate, 1);
+  
+      return {
+        start: parsedStartDate,
+        end: endDatePlusOneDay,
+      };
+    });
+  
+    return excludedIntervals;
+  };
+
   const imagen =
     product.imagenes && product.imagenes.length > 0
       ? product.imagenes[0]
@@ -129,9 +179,11 @@ const ReservationDetail = () => {
               <DatePicker
                 selected={startDate}
                 onChange={handleStartDateChange}
+                excludeDateIntervals={generateExcludedIntervals()}
                 timeInputLabel="Time:"
                 dateFormat="yyyy-MM-dd h:mm aa"
                 showTimeInput
+                placeholderText="Selecciona una fecha de inicio"
               />
             </div>
             <div>
@@ -141,9 +193,11 @@ const ReservationDetail = () => {
               <DatePicker
                 selected={endDate}
                 onChange={handleEndDateChange}
+                excludeDateIntervals={generateExcludedIntervals()}
                 timeInputLabel="Time:"
                 dateFormat="yyyy-MM-dd h:mm aa"
                 showTimeInput
+                placeholderText="Selecciona una fecha de devolucion"
               />
             </div>
             <div>
@@ -153,7 +207,13 @@ const ReservationDetail = () => {
               </p>
             </div>
 
-            <button type="submit">Confirmar Reserva</button>
+            {isAuth ? (
+              <button type="submit">Confirmar Reserva</button>
+
+            ):(
+              <a href="/login">Inicia Sesion</a>
+            )}
+            
           </form>
           <div className="data-container">
             <h4 style={{ textAlign: "center" }}>Datos de la Reserva</h4>
@@ -181,7 +241,7 @@ const ReservationDetail = () => {
         </div>
       </div>
       <div className="progressBar-container">
-        <Progress animated1={true} animated2={true} animated3={false}/>
+        <Progress animated1={true} animated2={true} animated3={false} />
       </div>
     </section>
   );
