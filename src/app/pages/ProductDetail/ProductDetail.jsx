@@ -12,6 +12,7 @@ import { CgScreenShot } from "react-icons/cg";
 import "./ProductDetail.css";
 import DatePickerForm from "../../components/DatePickerBookings/DatePicker";
 import { Link } from 'react-router-dom';
+import RatingStars from "./RatingStars";
 
 
 export default function ProductDetail() {
@@ -126,19 +127,19 @@ export default function ProductDetail() {
             </Card>
 
             <Col className="ratings-container mx-auto">
-  <Card.Body>
-    <Card.Title className="text-center">Reseña de otros usuarios</Card.Title>
-    <ul className="text-center">
-      {ratings.map((rating) => (
-        <li className="ratingCard" key={rating.id}>
-          <strong>{rating.userName}</strong> - {rating.rating} stars
-          <p className="fecha">{rating.date}</p>
-          <p>{rating.comment}</p>
-        </li>
-      ))}
-    </ul>
-  </Card.Body>
-</Col>
+              <Card.Body>
+                <Card.Title className="text-center">Reseña de otros usuarios</Card.Title>
+                <ul className="text-center">
+                  {ratings.map((rating) => (
+                    <li className="ratingCard" key={rating.id}>
+                      <strong>{rating.userName}</strong> - <RatingStars rating={rating.rating} />
+                      <p className="fecha">{rating.date}</p>
+                      <p>{rating.comment}</p>
+                    </li>
+                  ))}
+                </ul>
+              </Card.Body>
+            </Col>
 
           </Col>
 
