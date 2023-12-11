@@ -234,10 +234,6 @@ const ReservationDetail = () => {
             <h4>{product.nombre} </h4>
             <img src={imagen} alt="foto producto" />
           </div>
-          <div className="productCard-data">
-            <p>Precio por dia: ${product.precio}</p>
-            <p>{product.descripcion}</p>
-          </div>
         </div>
       </div>
       <div className="progressBar-container">
