@@ -36,7 +36,7 @@ export default function FavoritosList() {
       {favoritos.length === 0 ? (
         <p>No tienes productos favoritos</p>
       ) : (
-        <div className="favoritos-list">
+        <div className="favoritos-list" style={{margin:"0"}}>
           {favoritos.map((favorito) => (
             <ProductBox
               key={favorito.id}

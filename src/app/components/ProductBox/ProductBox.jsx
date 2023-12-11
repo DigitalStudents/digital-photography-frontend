@@ -118,7 +118,7 @@ export default function ProductBox({
   };
 
   return (
-    <Card style={{ width: "13rem", height: "23rem", position: "relative" }}>
+    <Card style={{ width: "13rem", height: "23rem", position: "relative", margin: 0 }}>
       <Link
         className="link"
         to={`/product/${id}`}

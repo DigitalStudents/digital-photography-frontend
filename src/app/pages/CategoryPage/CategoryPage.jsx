@@ -51,7 +51,7 @@ export default function CategoryPage() {
                     <Row>
                         {(productos.length) ? productos.map((producto) => (
                             <Col key={producto.id} sm={12}>
-                                <Card className="mb-3">
+                                <Card className="mb-3" style={{margin: 0, width:"auto"}}>
                                     <Card.Body>
                                         <Card.Title>{producto.nombre}</Card.Title>
                                         <Card.Subtitle className="mb-2 text-muted">Categoría: {producto.categorias[0].nombre}</Card.Subtitle>
