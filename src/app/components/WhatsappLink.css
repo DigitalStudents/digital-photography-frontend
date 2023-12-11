@@ -17,6 +17,6 @@
 
 
 .whatsapp-link:hover {
-  background-color: #128c7e;
-  
+  transform: scale(1.05);
+  color: #fff;
 }

@@ -1,5 +1,5 @@
 
-.card-body {
+ .ProductCard {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,6 +14,7 @@
 
   .link{
     text-decoration: none;
+    margin-left: 0px;
   } 
   .link:hover{
     text-decoration: none;

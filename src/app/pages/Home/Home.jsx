@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import React, { useState, useEffect } from "react";
+import Img1 from '/src/assets/images/camera-hero-banner.webp';
 import "./Home.css";
 
 function Home() {
@@ -41,7 +42,7 @@ function Home() {
         </Navbar.Collapse>
       </Navbar>
 
-      <Hero heroImage={"/camera-hero-banner.webp"} tilte={"RENTA TU CÁMARA IDEAL"} subtitle={"Lleva tus producciones a otro nivel con nuestra gran variedad de productos"} />
+      <Hero heroImage={Img1} tilte={"RENTA TU CÁMARA IDEAL"} subtitle={"Lleva tus producciones a otro nivel con nuestra gran variedad de productos"} />
       
       <h1 className="title-container">Productos que pueden interesarte</h1>
 

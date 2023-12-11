@@ -160,10 +160,7 @@ const RegisterProduct = () => {
 
   const handleChangeFiles = (e) => {
     const namefiles = Array.from(e.target.files).map((file) => file.name);
-    setProductForm({
-      ...productForm,
-      imagenes: [...namefiles],
-    });
+    
     setImages(Array.from(e.target.files));
     /*
     Array.from(e.target.files).forEach((file) => {
@@ -234,10 +231,9 @@ const RegisterProduct = () => {
     const validityTextFields =
       !!nombre && !!categorias[0]?.nombre && !!descripcion;
     const validityNumberFields = precio > 0;
-    const validityFiles = imagenes.length > 0;
 
     setEnableSubmit(
-      validityTextFields && validityNumberFields && validityFiles
+      validityTextFields && validityNumberFields
     );
   }, [productForm]);
 
