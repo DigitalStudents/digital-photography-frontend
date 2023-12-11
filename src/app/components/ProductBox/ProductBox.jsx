@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { FaHeart, FaRegHeart } from "react-icons/fa"; 
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import "./ProductBox.css";
+import RatingStars from "../../pages/ProductDetail/RatingStars";
 
 export default function ProductBox({
   nombre,
@@ -11,25 +12,31 @@ export default function ProductBox({
   imagen,
   tipo,
   descripcion,
-  precio_por_dia
+  precio_por_dia,
 }) {
   const [isFavorito, setIsFavorito] = useState(false);
-  const isAuth = sessionStorage.getItem('token');
-  const userId = sessionStorage.getItem('userId');
+  const isAuth = sessionStorage.getItem("token");
+  const userId = sessionStorage.getItem("userId");
   const [userFavorites, setUserFavorites] = useState([]);
+  const [averaRating, setAverageRating] = useState();
 
   useEffect(() => {
     const fetchUserFavorites = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_USERS_URL}${userId}/productosFavoritos`, {
-          headers: {
-            'Authorization': 'Bearer ' + isAuth,
-          },
-        });
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_BACKEND_USERS_URL
+          }${userId}/productosFavoritos`,
+          {
+            headers: {
+              Authorization: "Bearer " + isAuth,
+            },
+          }
+        );
 
         if (response.ok) {
           const favorites = await response.json();
-          setUserFavorites(favorites.map(product => product.id));
+          setUserFavorites(favorites.map((product) => product.id));
         } else {
           console.error("Error fetching user favorites");
         }
@@ -42,6 +49,29 @@ export default function ProductBox({
       fetchUserFavorites();
     }
   }, [isAuth, userId]);
+
+  useEffect(() => {
+    const fetchAverageRating = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}productos/${id}/promedioRating`,
+          {}
+        );
+
+        if (response.ok) {
+          const averaRating = await response.json();
+          setAverageRating(averaRating);
+          console.log(averaRating);
+        } else {
+          console.error("Error fetching promedioRating");
+        }
+      } catch (error) {
+        console.error("Error fetching promedioRatings", error);
+      }
+    };
+
+    fetchAverageRating();
+  }, []);
 
   useEffect(() => {
     setIsFavorito(userFavorites.includes(id));
@@ -60,18 +90,18 @@ export default function ProductBox({
         const response = await fetch(url, {
           method: "POST",
           headers: {
-            'Authorization': 'Bearer ' + isAuth,
+            Authorization: "Bearer " + isAuth,
           },
         });
 
         if (response.ok) {
           // Update local state
           setIsFavorito(!isFavorito);
-          
+
           // Update userFavorites based on the server response
-          setUserFavorites(prevFavorites => {
+          setUserFavorites((prevFavorites) => {
             if (isFavorito) {
-              return prevFavorites.filter(favId => favId !== id);
+              return prevFavorites.filter((favId) => favId !== id);
             } else {
               return [...prevFavorites, id];
             }
@@ -88,12 +118,25 @@ export default function ProductBox({
   };
 
   return (
-    <Card style={{ width: "13rem", height:"23rem", position: "relative" }}>
-      <Link className="link" to={`/product/${id}`} style={{marginLeft: 0, display: "contents"}}>
-        <Card.Img style={{ width: "auto", height:"12rem" }} variant="top" src={imagen} />
-        <Card.Body className="ProductCard" style={{ color: "black"}}>
+    <Card style={{ width: "13rem", height: "23rem", position: "relative" }}>
+      <Link
+        className="link"
+        to={`/product/${id}`}
+        style={{ marginLeft: 0, display: "contents" }}
+      >
+        <Card.Img
+          style={{ width: "auto", height: "12rem" }}
+          variant="top"
+          src={imagen}
+        />
+        <Card.Body className="ProductCard" style={{ color: "black" }}>
           <Card.Title className="title">{nombre}</Card.Title>
-          <Card.Text className="text" style={{fontWeight:500}} >Precio por día: $ {precio_por_dia}</Card.Text>
+          <Card.Text className="text" style={{ fontWeight: 500 }}>
+            Precio por día: $ {precio_por_dia}
+          </Card.Text>
+
+          <div> <RatingStars rating={averaRating}/> </div>
+
         </Card.Body>
       </Link>
 
@@ -108,7 +151,7 @@ export default function ProductBox({
           paddingBottom: 16,
           borderRadius: "100%",
           backgroundColor: "white",
-          zIndex: "2"
+          zIndex: "2",
         }}
         onMouseDown={handleToggleFavorito}
       >
