@@ -22,6 +22,7 @@ import UserProfile from "../pages/User/UserProfile";
 import FavsProducts from "../pages/User/FavsProducts";
 import ReservationDetail from "../pages/ReservationDetail/ReservationDetail";
 import UserReservations from "../pages/User/UserReservations";
+import ReservationConfirm from "../pages/ReservationConfirm/ReservationConfirm";
 //import Login from "../pages/login/Login";
 
 
@@ -50,6 +51,10 @@ export const Router = createBrowserRouter([
       {
         path:"/product/:productId/reservationDetail",
         element: <ReservationDetail />
+      },
+      {
+        path:"/reservationConfirm",
+        element: <ReservationConfirm />
       },
       {
         path: "/categoria/:categoryId",

@@ -1,94 +1,79 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import Swal from "sweetalert2";
 import "react-datepicker/dist/react-datepicker.css";
-import { format } from "date-fns";
+import { parse, addDays } from "date-fns";
 import { registerLocale } from "react-datepicker";
-import es from 'date-fns/locale/es';
+import es from "date-fns/locale/es";
 import "./DatePicker.css";
 
-registerLocale('es', es);
+registerLocale("es", es);
 
 const DatePickerForm = ({ productId }) => {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [startDate, setStartDate] = useState(new Date());
+  const [reservations, setReservations] = useState([]);
 
-  const reservationEndpoint = `${import.meta.env.VITE_BACKEND_URL}reservations`;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}reservations/product/${productId}`
+        );
+        const data = await response.json();
+        console.log(data); // Verifica la respuesta en la consola
 
-  const handleStartDateChange = (date) => {
-    setStartDate(date);
-  };
-
-  const handleEndDateChange = (date) => {
-    setEndDate(date);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (startDate && endDate) {
-      const formattedStartDate = startDate.toISOString().split('T')[0];
-      const formattedEndDate = endDate.toISOString().split('T')[0];
-
-      const reservationForm = {
-        productId: productId,
-        startDate: formattedStartDate,
-        endDate: formattedEndDate,
-      };
-
-      fetch(reservationEndpoint, {
-        method: "POST",
-        body: JSON.stringify(reservationForm),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((resp) => {
-          if (resp.status === 200) {
-            console.log("Reserva creada");
-            Swal.fire("Reserva creada con éxito!", "", "success");
-            setStartDate(null);
-            setEndDate(null);
-          } else {
-            return resp.json().then((data) => {
-              throw new Error(data.message || "Error en la solicitud");
-            });
-          }
-        })
-        .catch((err) => {
-          console.error(err);
-          Swal.fire(
-            "Error al crear reserva",
-            err.message || "Error desconocido",
-            "error"
+        if (data) {
+          setReservations(data);
+        } else {
+          console.error(
+            "La respuesta de la solicitud no contiene 'nombre' esperado"
           );
-        });
-    } else {
-      alert("Por favor selecciona ambas fechas");
-    }
+        }
+      } catch (error) {
+        console.error("Error en la solicitud fetch:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const generateExcludedIntervals = () => {
+    const excludedIntervals = reservations.map((reservation) => {
+      const formattedStartDate = reservation.startDate.substring(0, 10); // Obtener solo YYYY-MM-DD
+      const formattedEndDate = reservation.endDate.substring(0, 10); // Obtener solo YYYY-MM-DD
+
+      // Convertir las cadenas de fecha en objetos de fecha
+      const parsedStartDate = parse(
+        formattedStartDate,
+        "yyyy-MM-dd",
+        new Date()
+      );
+      const parsedEndDate = parse(formattedEndDate, "yyyy-MM-dd", new Date());
+
+      // Agregar un día a la fecha de fin
+      const endDatePlusOneDay = addDays(parsedEndDate, 1);
+
+      return {
+        start: parsedStartDate,
+        end: endDatePlusOneDay,
+      };
+    });
+
+    return excludedIntervals;
   };
 
   return (
-    <form onSubmit={handleSubmit} className="datepicker">
-      <div>
-        <label>Fecha de Inicio: </label>
+    <section style={{width:"100%"}}>
+      <h4>Fechas Disponibles</h4>
+      <div style={{width:"100%"}}>
         <DatePicker
           selected={startDate}
-          onChange={handleStartDateChange}
-          dateFormat="yyyy-MM-dd"
-          locale="es"
+          onChange={(date) => setStartDate(date)}
+          excludeDateIntervals={generateExcludedIntervals()}
+          inline
         />
       </div>
-      <div>
-        <label>Fecha de Fin: </label>
-        <DatePicker
-          selected={endDate}
-          onChange={handleEndDateChange}
-          dateFormat="yyyy-MM-dd"
-          locale="es"
-        />
-      </div>
-      <button type="submit">Enviar</button>
-    </form>
+    </section>
   );
 };
 
