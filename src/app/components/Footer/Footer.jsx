@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import Modal from 'react-bootstrap/Modal';
 import './footer.css';
+import facebookLogo from '/src/assets/images/icon-facebook.svg'
+import twitterLogo from '/src/assets/images/icon-twitter.svg'
+import instagramLogo from '/src/assets/images/icon-instagram.svg'
+import footerLogo from '/src/assets/images/footerlogo.jpeg'
 
 const Footer = () => {
 
@@ -40,14 +44,14 @@ const Footer = () => {
       <section className="content">
         <div className="imgfooter">
           <div className="logofooter">
-            <img src="/src/app/components/Footer/svg/logo.jpeg" alt="Logo" />
+            <img src={footerLogo} alt="LogoFooter" />
           </div>
           <h1 className="contacto">contacto@filmbook.com</h1>
 
           <div className="iconosfooter">
-            <a href="https://www.facebook.com"><img src="/src/app/components/Footer/svg/icon-facebook.svg" alt="Facebook" /></a>
-            <a href="https://www.twitter.com"><img src="/src/app/components/Footer/svg/icon-twitter.svg" alt="Twitter" /></a>
-            <a href="https://www.instagram.com"><img src="/src/app/components/Footer/svg/icon-instagram.svg" alt="Instagram" /></a>
+            <a href="https://www.facebook.com"><img src={facebookLogo} alt="Facebook" /></a>
+            <a href="https://www.twitter.com"><img src={twitterLogo} alt="Twitter" /></a>
+            <a href="https://www.instagram.com"><img src={instagramLogo} alt="Instagram" /></a>
           </div>
         </div>
 

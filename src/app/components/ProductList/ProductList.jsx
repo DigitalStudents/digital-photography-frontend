@@ -18,6 +18,8 @@ const ProductList = () => {
         const data = await response.json();
 
         if (data.content) {
+          console.log("Received Products:", data.content);
+          console.log("Total Pages:", data.totalPages);
           setProducts(data.content.filter((product) => !product.deleted));
           setTotalPages(data.totalPages);
         }

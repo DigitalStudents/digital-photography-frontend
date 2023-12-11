@@ -56,3 +56,51 @@ width: 90%;
 margin-left: 5%;
 
   }
+
+  .ratings-container {
+    margin-top: 2rem;
+  }
+  
+  .ratings-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .ratings-container li {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+  }
+  
+  .ratings-container strong {
+    font-size: 1.2rem;
+    color: #3498db;
+  }
+  
+  .ratings-container p {
+    font-weight: 500;
+    margin: 0.5rem 0 0;
+  }
+  
+  
+  .ratings-container .card {
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ratings-container .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .ratingCard{
+    background-color: white;
+  }
+
+  .ratings-container .fecha {
+    font-weight: 100;
+    margin-top: 0;
+}
