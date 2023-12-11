@@ -32,6 +32,11 @@ const ReservationDetail = () => {
   const isAuth =
   sessionStorage.getItem("token") && sessionStorage.getItem("username");
 
+  const name = sessionStorage.getItem('firstName');
+  const lastName = sessionStorage.getItem('lastName');
+  const username = sessionStorage.getItem('username');
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -218,10 +223,10 @@ const ReservationDetail = () => {
           <div className="data-container">
             <h4 style={{ textAlign: "center" }}>Datos de la Reserva</h4>
             <p>
-              <FaUser /> <strong>Nombre completo: </strong>Tomas Esposito
+              <FaUser /> <strong>Nombre completo: </strong> {name} {lastName}
             </p>
             <p>
-              <MdEmail /> <strong>Email: </strong> tomyesposito15@gmail.com
+              <MdEmail /> <strong>Email: </strong> {username}
             </p>
             <p>
               <FaCamera /> <strong>Producto: </strong>

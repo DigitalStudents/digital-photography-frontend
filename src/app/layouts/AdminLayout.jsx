@@ -10,12 +10,13 @@ const layoutClass = {
 };
 const AdminLayout = () => {
   const { width } = useWindowSize();
+  const name = sessionStorage.getItem('firstName')
   return (
     <Fragment>
       {width >= 1024 ? (
         <section style={layoutClass}>
           <div style={{ height: "100%" }}>
-            <Sidebar />
+            <Sidebar name={name} />
           </div>
           <div style={{height:"100vh"}}>
             <Outlet />
