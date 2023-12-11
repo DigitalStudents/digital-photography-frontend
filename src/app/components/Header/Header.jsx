@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { SearchResultsList } from "../SearchBar/SearchResultList";
 import { useState } from "react";
-import logoImage from '/src/assets/images/logo.png';
+import headerlogo from '/src/assets/images/headerlogo.png';
 
 function Header() {
   const [results, setResults] = useState([]);
@@ -38,7 +38,7 @@ function Header() {
     >
       <Container>
 
-      <img src={logoImage} width={55} height={30} alt="headerLogo" />
+      <img src={headerlogo} width={55} height={30} alt="headerLogo" />
 
         <Navbar className="headerlogo" href="#home">
           <Link to="/" className="headerlogo">
