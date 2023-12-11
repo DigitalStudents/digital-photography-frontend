@@ -33,3 +33,15 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.reservation-container{
+    @extend .card-container;
+    display: flex;
+    flex-direction: row;
+}
+
+.progressBar-container{
+    padding-left: 100px;
+    padding-right: 100px;
+    height: 30px;
+  }

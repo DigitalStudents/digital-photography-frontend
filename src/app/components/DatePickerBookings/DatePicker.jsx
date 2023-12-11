@@ -4,10 +4,10 @@ import Swal from "sweetalert2";
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
 import { registerLocale } from "react-datepicker";
-import es from 'date-fns/locale/es';
+import es from "date-fns/locale/es";
 import "./DatePicker.css";
 
-registerLocale('es', es);
+registerLocale("es", es);
 
 const DatePickerForm = ({ productId }) => {
   const [startDate, setStartDate] = useState(null);
@@ -26,8 +26,8 @@ const DatePickerForm = ({ productId }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (startDate && endDate) {
-      const formattedStartDate = startDate.toISOString().split('T')[0];
-      const formattedEndDate = endDate.toISOString().split('T')[0];
+      const formattedStartDate = format(startDate, "yyyy-MM-dd HH:mm");
+      const formattedEndDate = format(endDate, "yyyy-MM-dd HH:mm");
 
       const reservationForm = {
         productId: productId,
@@ -63,32 +63,40 @@ const DatePickerForm = ({ productId }) => {
           );
         });
     } else {
-      alert("Por favor selecciona ambas fechas");
+      alert("Por favor rellena todos los campos");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="datepicker">
+    <section>
+      <form onSubmit={handleSubmit} className="datepicker">
+        <div>
+          <label>Selecciona Fecha y Hora de Inicio: </label>
+          <DatePicker
+            selected={startDate}
+            onChange={handleStartDateChange}
+            timeInputLabel="Time:"
+            dateFormat="yyyy-MM-dd h:mm aa"
+            showTimeInput
+          />
+        </div>
+        <div>
+          <label>Fecha de Fin: </label>
+          <DatePicker
+            selected={endDate}
+            onChange={handleEndDateChange}
+            timeInputLabel="Time:"
+            dateFormat="yyyy-MM-dd h:mm aa"
+            showTimeInput
+          />
+        </div>
+
+        <button type="submit">Enviar</button>
+      </form>
       <div>
-        <label>Fecha de Inicio: </label>
-        <DatePicker
-          selected={startDate}
-          onChange={handleStartDateChange}
-          dateFormat="yyyy-MM-dd"
-          locale="es"
-        />
+        <h4>Datos de la Reserva</h4>
       </div>
-      <div>
-        <label>Fecha de Fin: </label>
-        <DatePicker
-          selected={endDate}
-          onChange={handleEndDateChange}
-          dateFormat="yyyy-MM-dd"
-          locale="es"
-        />
-      </div>
-      <button type="submit">Enviar</button>
-    </form>
+    </section>
   );
 };
 
